@@ -1,0 +1,28 @@
+#!/bin/bash
+
+case $1 in
+	sh) cp ~/dev/script/newp-template/sh.template $2 ;;
+	cpp) cp -r ~/dev/script/newp-template/cpp.template $2
+		cd $2
+		touch CMakeLists.temp
+		name=${2##*/}
+		sed "s/^\(project(cpp.template\)/project($name/" CMakeLists.txt > CMakeLists.temp
+		cat CMakeLists.temp > CMakeLists.txt
+		rm CMakeLists.temp
+		echo $2 > .wakatime-project;;
+	web) cp -r ~/dev/script/newp-template/web.template $2
+		cd $2
+		echo "name : $2" > .webconfig
+		if [[ $3 != "" ]]; then
+			echo "link : $3" >> .webconfig
+		else
+			echo "link : http://www" >> .webconfig
+		fi
+		echo $2 > .wakatime-project;;
+	java) cp -r ~/dev/script/newp-template/java.template $2
+		cd $2
+		touch src/$2.java
+		sed "s/template/$2/" src/template.java > src/$2.java
+		rm src/template.java
+		echo $2 > .wakatime-project;;
+esac

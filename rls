@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ $1 != "" ]; then
+	cd $1
+fi
+
+project=$(grep "^\(project(\)" CMakeLists.txt) || exit
+project=${project#project(}
+project=${project%% *}
+cd $(pwd)/build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make
+
+figlet "noice" | lolcat
+
+echo -n "lunch $project ? (y/n) "
+read input
+if [[ input -eq "y" ]]; then
+	./$project
+fi

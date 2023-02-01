@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cmpt_mcm(){
+	for opt in `ls --ignore=*.jar ~/.minecraft/mods`; do
+		COMPREPLY+=("$opt")
+	done
+}
+complete -F cmpt_mcm mcm
+
+cmpt_newp(){
+	for opt in `ls ~/dev/script/newp-template`; do
+		COMPREPLY+=("${opt%.*}")
+	done
+}
+complete -F cmpt_newp newp
+
+cmpt_prj(){
+	for opt in `ls ~/dev`; do
+		COMPREPLY+=("$opt")
+	done
+}
+complete -F cmpt_prj prj

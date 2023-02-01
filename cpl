@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [[ $1 != "" ]]; then
+	cd $1 2>/dev/null
+fi
+
+if [ $(ls CMakeLists.txt 2>/dev/null) ]; then									# cpp
+	project=$(grep "^\(project(\)" CMakeLists.txt) || exit
+	project=${project#project(}
+	project=${project%% *}
+	cd build
+	cmake -DCMAKE_BUILD_TYPE=Debug ..
+	make
+	./$project
+elif [[ ${1##*.} = "py" ]]; then													# py
+	python3 $1
+elif [ $(ls *.gpr 2>/dev/null) ]; then											# ada
+	gprbuild $(ls *.gpr) && echo -e "\nexecutable :" && ls -F obj | grep "*$"
+elif [[ ${1##*.} = "sh" ]]; then												# bash
+	chmod +x $1
+elif [ $(ls .webconfig 2>/dev/null) ]; then										# web
+	rm -rf dst/.files
+	name=$(grep name .webconfig)
+	name=${name##* }
+	link=$(grep link .webconfig)
+	link=${link##* }
+	ssg src dst "$name" "$link"
+elif [ $(find -name "*.java" | wc -l) -ge 1 ]; then 							# java
+	find -name "*.java" > .files
+	javac -cp lib/*.jar -d build/ @.files
+	name=$(pwd)
+	name=${name##*/}
+	cd build
+	java $name
+fi

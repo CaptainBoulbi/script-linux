@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#comp=`cat completion`
+#echo $comp
+#
+#opt=$(ls ~/.minecraft/mods)
+#comp=$(sed "s/'.*' mcm/'`echo $opt`' mcm \n/" <<< $comp)
+#
+#opt=""
+#fich=$(ls ~/dev/script/newp-template)
+#for var in $fich; do
+#	opt+=" ${var%.*}"
+#done
+#comp=$(sed "s/'.*' newp/'`echo $opt`' newp;/" <<< $comp)
+#
+#opt=$(ls ~/dev)
+#comp=$(sed "s/'.*' prj/'`echo $opt`' prj;/" <<< $comp)
+#
+#echo -e $comp
+
+cd ~/dev/script
+rm completion
+touch completion
+echo "#!/bin/bash" >> completion
+
+echo "complete -W '"$(ls ~/.minecraft/mods)"' mcm" >> completion
+
+fich=$(ls ~/dev/script/newp-template)
+for var in $fich; do
+	opt+=" ${var%.*}"
+done
+opt=${opt# }
+echo "complete -W '$opt' newp" >> completion
+
+echo "complete -W '"$(ls ~/dev)"' prj" >> completion
+
+. ./completion

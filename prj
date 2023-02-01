@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/dev
+cd $1 2>/dev/null && nvim . || ( ( cd ${1%/*} 2>/dev/null && nvim ${1##*/} ) || nvim $1 )
