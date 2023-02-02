@@ -5,3 +5,5 @@ if [[ $1 = "" ]]; then
 else
 	cowsay -f tux $1 | lolcat
 fi
+
+# lol
