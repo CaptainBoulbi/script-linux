@@ -1,0 +1,4 @@
+#!/bin/bash
+
+touch .wakatime-project
+echo $1 > .wakatime-project
