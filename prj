@@ -1,4 +1,5 @@
 #!/bin/bash
+# permet d'ouvrir un pro jet dans le dossier ~/dev depuis n'importe ou
 
 cd ~/dev
 cd $1 2>/dev/null && nvim . || ( ( cd ${1%/*} 2>/dev/null && nvim ${1##*/} ) || nvim $1 )

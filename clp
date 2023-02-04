@@ -1,4 +1,5 @@
 #!/bin/bash
+# compte le nombre de ligne ecrite dans un fichier text
 
 if [[ $1 != "" ]]; then
 	cd $1

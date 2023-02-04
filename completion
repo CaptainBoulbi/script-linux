@@ -1,4 +1,5 @@
 #!/bin/bash
+# fait la completion automatique pour des script fait maison ;)
 
 cmpt_mcm(){
 	for opt in `ls --ignore=*.jar ~/.minecraft/mods`; do

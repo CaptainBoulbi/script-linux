@@ -1,4 +1,5 @@
 #!/bin/bash
+# lol hihiha
 
 if [[ $1 = "" ]]; then
 	fortune | cowsay -f tux | lolcat

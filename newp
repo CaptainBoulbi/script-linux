@@ -1,4 +1,5 @@
 #!/bin/bash
+# crée un un template de projet en fonction du language
 
 case $1 in
 	sh) cp ~/dev/script/newp-template/sh.template $2 ;;

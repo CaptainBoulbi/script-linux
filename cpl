@@ -1,4 +1,5 @@
 #!/bin/bash
+# compile des programme en fonction de leur language
 
 if [[ $1 != "" ]]; then
 	cd $1 2>/dev/null

@@ -1,4 +1,5 @@
 #!/bin/bash
+# crée le fichier .wakatime-project pour avoir le nom du project sur le dashboard
 
 touch .wakatime-project
 echo $1 > .wakatime-project

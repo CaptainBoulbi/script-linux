@@ -1,4 +1,5 @@
 #!/bin/bash
+# change de modpack minecraft
 
 
 load=$1
