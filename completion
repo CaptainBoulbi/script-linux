@@ -15,9 +15,9 @@ cmpt_newp(){
 }
 complete -F cmpt_newp newp
 
-cmpt_prj(){
-	for opt in `ls ~/dev`; do
-		COMPREPLY+=("$opt")
-	done
-}
-complete -F cmpt_prj prj
+# cmpt_prj(){
+# 	for opt in `ls ~/dev`; do
+# 		COMPREPLY+=("$opt")
+# 	done
+# }
+# complete -F cmpt_prj prj
