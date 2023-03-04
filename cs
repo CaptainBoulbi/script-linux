@@ -1,4 +1,6 @@
 #!/bin/bash
+# facilite l'utilisation et la création des cheat sheet + listage et lien
+# pour aide cs -h
 
 
 if [[ $1 = "-l" ]]; then
