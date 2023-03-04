@@ -21,3 +21,13 @@ complete -F cmpt_newp newp
 # 	done
 # }
 # complete -F cmpt_prj prj
+
+source ~/dev/script.download/git-completion.bash 
+__git_complete g git
+
+cmpt_cs(){
+	for opt in `ls ~/dev/cheat-sheet`; do
+		COMPREPLY+=("$opt")
+	done
+}
+complete -F cmpt_cs cs
