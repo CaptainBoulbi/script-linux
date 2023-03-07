@@ -29,5 +29,11 @@ cmpt_cs(){
 	for opt in `ls ~/dev/cheat-sheet`; do
 		COMPREPLY+=("$opt")
 	done
+	COMPREPLY+=("-h")
+	COMPREPLY+=("-l")
+	COMPREPLY+=("-ln")
+	COMPREPLY+=("-st")
+	COMPREPLY+=("-ci")
+	COMPREPLY+=("-log")
 }
 complete -F cmpt_cs cs

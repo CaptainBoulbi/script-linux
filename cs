@@ -17,10 +17,14 @@ if [[ $1 = "-st" ]]; then
 	exit
 fi
 if [[ $1 = "-ci" ]]; then
-	echo "commit avec -m : \"$2\""
 	cd ~/dev/cheat-sheet
 	git add .
 	git commit -am "$2"
+	exit
+fi
+if [[ $1 = "-log" ]]; then
+	cd ~/dev/cheat-sheet
+	git plog
 	exit
 fi
 if [[ $1 = "-h" ]]; then
@@ -30,6 +34,7 @@ if [[ $1 = "-h" ]]; then
 	echo "cs -ln <cheat-sheet> <lien> : crée un lien symbolique du cheat-sheet nommé lien"
 	echo "cs -st : affiche le status git des cheat-sheet (eq: cd ~/dev/cheat-sheet && git status)"
 	echo "cs -ci \"message\" : commit les cheat-sheet (eq: cd ~/dev/cheat-sheet && git add . && git commit -am \"message\")"
+	echo "cs -log : affiche les log des commit git (eq: git plog)"
 	exit
 fi
 
