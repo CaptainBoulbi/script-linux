@@ -43,7 +43,8 @@ alias lsa="ls -a"
 alias lsd="ls -d */"
 alias lsf="ls -p | grep -v / | tr '\n' '\t' && echo"
 alias lsl="ls -l"
-alias ls.="ls .."
+alias ls..="ls .."
+alias ls.="ls -a | grep \"^\.\" | tr '\n' '\t' && echo"
 alias bashrc="nvim ~/dev/script/bashrc && exec bash"
 alias agenda="v ~/documents/agenda"
 alias quoi="echo feur && espeak -v fr-fr feur"
@@ -55,6 +56,8 @@ alias back="cd - >/dev/null"
 alias important="cd ~/documents/important && open ."
 alias jobs="jobs -l"
 alias color-test="echo -e \"${RED}RED ${GREEN}GREEN ${ORANGE}ORANGE ${BLUE}BLUE ${PURPLE}PURPLE ${CYAN}CYAN ${LIGHTGRAY}LIGHTGRAY ${DARKGRAY}DARKGRAY ${LIGHTGREEN}LIGHTGREEN ${YELLOW}YELLOW ${LIGHTBLUE}LIGHTBLUE ${LIGHTPURPLE}LIGHTPURPLE ${LIGHTCYAN}LIGHTCYAN ${WHITE}WHITE ${NC}NC\""
+alias v.="nvim ."
+alias vrc="nvim ~/.config/nvim"
 
 # source file
 source ~/dev/script/completion
@@ -62,6 +65,6 @@ source /home/cptbb/downloads/git/bash-wakatime/bash-wakatime.sh
 
 # fun ?
 while true; do
-	[ $(date +%H) -eq $(date +%M) ] && echo -e "${RED}$(date +%H):$(date +%M) TOUCHEZ DU ROUGE${NC}"
+	[ $(date +%H) -eq $(date +%M) ] && echo -e "${RED}$(date +%H):$(date +%M) TOUCHEZ DU ROUGE${NC}";
 	sleep 60
 done &
