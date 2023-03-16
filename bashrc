@@ -23,14 +23,27 @@ set -o vi
 export PATH="$HOME/dev/script/:$PATH"
 export PATH="$HOME/dev/script.download/:$PATH"
 
+# source file
+source ~/dev/script/completion
+source /home/cptbb/downloads/git/bash-wakatime/bash-wakatime.sh
+
+# # fun ?
+# if [ $(cat ~/.funny) -eq 0 ]; then
+# 	echo 2 > ~/.funny
+# 	echo "FUNNY ACTIVATED"
+# 	while true; do
+# 		[ $(date +%H) -eq $(date +%M) ] && notify-send " " "$(date +%H):$(date +%M) TOUCHEZ DU ROUGE" && sleep 1800;
+# 		sleep 60
+# 	done &
+# fi
+
 # alias
-alias dev="cd ~/dev/"
-alias cours="cd ~/cours/"
+alias dev="f(){ cd ~/dev/$1; }; f"
+alias cours="f(){ cd ~/cours/$1;}; f"
 alias cls="clear && neofetch"
 alias clr="clear"
-alias xclipi="xclip -sel clip"
 alias rm="trash"
-alias shutdown="shutdown 0"
+alias shut="echo 0 > ~/.funny; shutdown 0"
 alias v="nvim"
 alias g="git"
 alias hm="gnome-terminal --full-screen -- bash -c \"cd ~/dev && neofetch; exec bash\" && exit"
@@ -40,11 +53,11 @@ alias ....="cd ../../.."
 alias send-nude="pqiv --fullscreen -t ~/pictures/nude.jpeg"
 alias libresprite="~/documents/libresprite.AppImage 1>/dev/null &"
 alias lsa="ls -a"
-alias lsd="ls -d */"
-alias lsf="ls -p | grep -v / | tr '\n' '\t' && echo"
+alias lsd="f(){ ls -d $1*/;}; f"
+alias lsf="f(){ ls -p $1 | grep -v / | tr '\n' '\t' && echo;}; f"
 alias lsl="ls -l"
-alias ls..="ls .."
-alias ls.="ls -a | grep \"^\.\" | tr '\n' '\t' && echo"
+alias ls..="f(){ ls $1..;}; f"
+alias ls.="f(){ ls -a $1 | grep \"^\.\" | tr '\n' '\t' && echo;}; f"
 alias bashrc="nvim ~/dev/script/bashrc && exec bash"
 alias agenda="v ~/documents/agenda"
 alias quoi="echo feur && espeak -v fr-fr feur"
@@ -56,15 +69,8 @@ alias back="cd - >/dev/null"
 alias important="cd ~/documents/important && open ."
 alias jobs="jobs -l"
 alias color-test="echo -e \"${RED}RED ${GREEN}GREEN ${ORANGE}ORANGE ${BLUE}BLUE ${PURPLE}PURPLE ${CYAN}CYAN ${LIGHTGRAY}LIGHTGRAY ${DARKGRAY}DARKGRAY ${LIGHTGREEN}LIGHTGREEN ${YELLOW}YELLOW ${LIGHTBLUE}LIGHTBLUE ${LIGHTPURPLE}LIGHTPURPLE ${LIGHTCYAN}LIGHTCYAN ${WHITE}WHITE ${NC}NC\""
-alias v.="nvim ."
+alias v,="nvim ."
 alias vrc="nvim ~/.config/nvim"
-
-# source file
-source ~/dev/script/completion
-source /home/cptbb/downloads/git/bash-wakatime/bash-wakatime.sh
-
-# fun ?
-while true; do
-	[ $(date +%H) -eq $(date +%M) ] && echo -e "${RED}$(date +%H):$(date +%M) TOUCHEZ DU ROUGE${NC}";
-	sleep 60
-done &
+alias pipe="pipes.sh -r 0 -p 5"
+alias wlc="wl-copy"
+alias wlp="wl-paste"
