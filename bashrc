@@ -41,6 +41,9 @@ myip=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g')
 # 	done &
 # fi
 
+# at start
+shuf -n 1 ~/dev/script/mcphrase | figlet
+
 # alias
 alias dev="f(){ cd ~/dev/$1; }; f"
 alias cours="f(){ cd ~/cours/$1;}; f"
@@ -78,3 +81,4 @@ alias vrc="nvim ~/.config/nvim"
 alias pipe="pipes.sh -r 0 -p 5"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
+alias laverite="echo -n 'linux > ' && echo wingay | lolcat -p 0.2"
