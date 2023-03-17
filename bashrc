@@ -27,6 +27,10 @@ export PATH="$HOME/dev/script.download/:$PATH"
 source ~/dev/script/completion
 source /home/cptbb/downloads/git/bash-wakatime/bash-wakatime.sh
 
+# variable
+
+myip=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g')
+
 # # fun ?
 # if [ $(cat ~/.funny) -eq 0 ]; then
 # 	echo 2 > ~/.funny
