@@ -42,6 +42,7 @@ myip=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g')
 # fi
 
 # at start
+clear
 shuf -n 1 ~/dev/script/mcphrase | figlet
 
 # alias
@@ -54,6 +55,7 @@ alias shut="echo 0 > ~/.funny; shutdown 0"
 alias v="nvim"
 alias g="git"
 alias hm="gnome-terminal --full-screen -- bash -c \"cd ~/dev && neofetch; exec bash\" && exit"
+alias hlm="dev;cls"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -82,3 +84,4 @@ alias pipe="pipes.sh -r 0 -p 5"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
 alias laverite="echo -n 'linux > ' && echo wingay | lolcat -p 0.2"
+alias mcphrase="shuf -n 1 ~/dev/script/mcphrase | figlet"

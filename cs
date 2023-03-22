@@ -27,6 +27,11 @@ if [[ $1 = "-log" ]]; then
 	git plog
 	exit
 fi
+if [[ $1 = "-ps" ]]; then
+	cd ~/dev/cheat-sheet
+	git push bbsrv
+	exit
+fi
 if [[ $1 = "-h" ]]; then
 	echo "cs -h : affiche aide commande"
 	echo "cs <cheat-sheet> : ouvre le cheat-sheet ou le crée s'il n'exite pas"
@@ -35,6 +40,7 @@ if [[ $1 = "-h" ]]; then
 	echo "cs -st : affiche le status git des cheat-sheet (eq: cd ~/dev/cheat-sheet && git status)"
 	echo "cs -ci \"message\" : commit les cheat-sheet (eq: cd ~/dev/cheat-sheet && git add . && git commit -am \"message\")"
 	echo "cs -log : affiche les log des commit git (eq: git plog)"
+	echo "cs -ps : push le depot git sur le boulbi serveur"
 	exit
 fi
 
