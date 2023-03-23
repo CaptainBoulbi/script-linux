@@ -2,46 +2,33 @@
 # facilite l'utilisation et la création des cheat sheet + listage et lien
 # pour aide cs -h
 
-
-if [[ $1 = "-l" ]]; then
-	ls ~/dev/cheat-sheet
-	exit
-fi
-if [[ $1 = "-ln" ]]; then
-	ln -s ~/dev/cheat-sheet/$2 $3
-	exit
-fi
-if [[ $1 = "-st" ]]; then
-	cd ~/dev/cheat-sheet
-	git status
-	exit
-fi
-if [[ $1 = "-ci" ]]; then
-	cd ~/dev/cheat-sheet
-	git add .
-	git commit -am "$2"
-	exit
-fi
-if [[ $1 = "-log" ]]; then
-	cd ~/dev/cheat-sheet
-	git plog
-	exit
-fi
-if [[ $1 = "-ps" ]]; then
-	cd ~/dev/cheat-sheet
-	git push bbsrv
-	exit
-fi
-if [[ $1 = "-h" ]]; then
-	echo "cs -h : affiche aide commande"
-	echo "cs <cheat-sheet> : ouvre le cheat-sheet ou le crée s'il n'exite pas"
-	echo "cs -l : affiche liste cheat sheet"
-	echo "cs -ln <cheat-sheet> <lien> : crée un lien symbolique du cheat-sheet nommé lien"
-	echo "cs -st : affiche le status git des cheat-sheet (eq: cd ~/dev/cheat-sheet && git status)"
-	echo "cs -ci \"message\" : commit les cheat-sheet (eq: cd ~/dev/cheat-sheet && git add . && git commit -am \"message\")"
-	echo "cs -log : affiche les log des commit git (eq: git plog)"
-	echo "cs -ps : push le depot git sur le boulbi serveur"
-	exit
-fi
+case $1 in
+	"-l") ls ~/dev/cheat-sheet
+		exit;;
+	"-ln") ln -s ~/dev/cheat-sheet/$2 $3
+		exit;;
+	"-st") cd ~/dev/cheat-sheet
+		git status
+		exit;;
+	"-ci") cd ~/dev/cheat-sheet
+		git add .
+		git commit -am "$2"
+		exit;;
+	"-log") cd ~/dev/cheat-sheet
+		git plog
+		exit;;
+	"-ps") cd ~/dev/cheat-sheet
+		git push bbsrv
+		exit;;
+	"-h") echo "cs -h : affiche aide commande"
+		echo "cs <cheat-sheet> : ouvre le cheat-sheet ou le crée s'il n'exite pas"
+		echo "cs -l : affiche liste cheat sheet"
+		echo "cs -ln <cheat-sheet> <lien> : crée un lien symbolique du cheat-sheet nommé lien"
+		echo "cs -st : affiche le status git des cheat-sheet (eq: cd ~/dev/cheat-sheet && git status)"
+		echo "cs -ci \"message\" : commit les cheat-sheet (eq: cd ~/dev/cheat-sheet && git add . && git commit -am \"message\")"
+		echo "cs -log : affiche les log des commit git (eq: git plog)"
+		echo "cs -ps : push le depot git sur le boulbi serveur"
+		exit;;
+esac
 
 nvim ~/dev/cheat-sheet/$1
