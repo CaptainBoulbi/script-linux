@@ -3,15 +3,15 @@
 
 
 ## memoire utilisé/total
-# free -h | awk '/^Mem:/ {print $3 "/" $2}'
+free -h | awk '/^Mem:/ {print $3 "/" $2}'
 
 ## temperature CPU
-# sensors | awk '/^Package/ {print $4}'
+sensors | awk '/^Package/ {print $4}'
 # print $X si le resultat est pas bon, remplacer X par le bon nb param
 # necessite le paquet lm-sensors sur ubuntu sinon lm_sensors sur arch
 
 ## top 10 prog qui prenne le plus de ressource cpu
-# ps axch -o cmd:15,%cpu --sort=-%cpu | head
+ps axch -o cmd:15,%cpu --sort=-%cpu | head
 
 ## top 10 prog qui prenne le plus de memoire
-# ps axch -o cmd:15,%mem --sort=-%mem | head
+ps axch -o cmd:15,%mem --sort=-%mem | head

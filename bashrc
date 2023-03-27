@@ -22,6 +22,7 @@ set -o vi
 # add directorie to PATH
 export PATH="$HOME/dev/script/:$PATH"
 export PATH="$HOME/dev/script.download/:$PATH"
+export PATH="$HOME/dev/built/:$PATH"
 
 # source file
 source ~/dev/script/completion
@@ -63,7 +64,7 @@ alias send-nude="pqiv --fullscreen -t ~/pictures/nude.jpeg"
 alias libresprite="~/documents/libresprite.AppImage 1>/dev/null &"
 alias lsa="ls -a"
 alias lsd="f(){ ls -d $1*/;}; f"
-alias lsf="f(){ ls -p $1 | grep -v / | tr '\n' '\t' && echo;}; f"
+alias lsf="f(){ ls -p $1 | grep -v / && echo;}; f"
 alias lsl="ls -l"
 alias ls..="f(){ ls $1..;}; f"
 alias ls.="f(){ ls -a $1 | grep \"^\.\" | tr '\n' '\t' && echo;}; f"
@@ -87,3 +88,4 @@ alias laverite="echo -n 'linux > ' && echo wingay | lolcat -p 0.2"
 alias mcphrase="shuf -n 1 ~/dev/script/mcphrase | figlet"
 alias gay-ouataz="figlet gay-ouataz | lolcat -p 0.5 2>/dev/null"
 alias tg="figlet TG "
+alias livres="cd ~/livres"
