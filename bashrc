@@ -89,3 +89,5 @@ alias mcphrase="shuf -n 1 ~/dev/script/mcphrase | figlet"
 alias gay-ouataz="figlet gay-ouataz | lolcat -p 0.5 2>/dev/null"
 alias tg="figlet TG "
 alias livres="cd ~/livres"
+#alias emoji="f(){ grep -i $1 ~/dev/emoji; }; f"
+emoji(){ grep -i $1 ~/dev/emoji; }

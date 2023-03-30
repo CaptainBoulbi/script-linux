@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS "-Wall -Weffc++ -Wextra -Wsign-conversion")
 
 # Sources
 file(GLOB_RECURSE SOURCES src/*.cpp)
-file(GLOB_RECURSE HEADERS includes/*.hpp includes/*.h src/*.hpp src/*.h)
+file(GLOB_RECURSE HEADERS include/*.hpp include/*.h src/*.hpp src/*.h)
 
 # ex librairie
 # find_package(exlib REQUIRED) # ou QUIET (req = obligée, si erreur stop ; quiet = si erreur, informe et continue)
@@ -23,7 +23,7 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 # target_link_libraries(${PROJECT_NAME} ${exlib_LIBRARIES})
 
 # Includes
-target_include_directories(${PROJECT_NAME} PUBLIC includes)
+target_include_directories(${PROJECT_NAME} PUBLIC include)
 target_include_directories(${PROJECT_NAME} PUBLIC src)
 
 # tuto
