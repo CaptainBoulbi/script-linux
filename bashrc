@@ -47,8 +47,6 @@ clear
 shuf -n 1 ~/dev/script/mcphrase | figlet
 
 # alias
-alias dev="f(){ cd ~/dev/$1; }; f"
-alias cours="f(){ cd ~/cours/$1;}; f"
 alias cls="clear && neofetch"
 alias clr="clear"
 alias rm="trash"
@@ -63,11 +61,7 @@ alias ....="cd ../../.."
 alias send-nude="pqiv --fullscreen -t ~/pictures/nude.jpeg"
 alias libresprite="~/documents/libresprite.AppImage 1>/dev/null &"
 alias lsa="ls -a"
-alias lsd="f(){ ls -d $1*/;}; f"
-alias lsf="f(){ ls -p $1 | grep -v / && echo;}; f"
 alias lsl="ls -l"
-alias ls..="f(){ ls $1..;}; f"
-alias ls.="f(){ ls -a $1 | grep \"^\.\" | tr '\n' '\t' && echo;}; f"
 alias bashrc="nvim ~/dev/script/bashrc && exec bash"
 alias agenda="v ~/documents/agenda"
 alias quoi="echo feur && espeak -v fr-fr feur"
@@ -89,5 +83,15 @@ alias mcphrase="shuf -n 1 ~/dev/script/mcphrase | figlet"
 alias gay-ouataz="figlet gay-ouataz | lolcat -p 0.5 2>/dev/null"
 alias tg="figlet TG "
 alias livres="cd ~/livres"
-#alias emoji="f(){ grep -i $1 ~/dev/emoji; }; f"
+alias lss="ls | grep -i"
+#alias fss="find . | grep -v \\\.git | grep -i"
+
+# alias avec parametre
 emoji(){ grep -i $1 ~/dev/emoji; }
+dev(){ cd ~/dev/$1; }
+cours(){ cd ~/cours/$1;}
+lsd(){ ls -d $1*/;}
+lsf(){ ls -p $1 | grep -v /$;}
+ls..(){ ls $1..;}
+ls.(){ ls -a $1 | grep ^\\.;}
+fss(){ find . | grep -v \\\.git | grep -i $1.[^/]*$; }

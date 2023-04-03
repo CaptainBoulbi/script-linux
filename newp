@@ -11,6 +11,14 @@ case $1 in
 		cat CMakeLists.temp > CMakeLists.txt
 		rm CMakeLists.temp
 		echo $2 > .wakatime-project;;
+	cppl) cp -r ~/dev/script/newp-template/cppl.template $2
+		cd $2
+		touch CMakeLists.temp
+		name=${2##*/}
+		sed "s/^\(project(cppl.template\)/project($name/" CMakeLists.txt > CMakeLists.temp
+		cat CMakeLists.temp > CMakeLists.txt
+		rm CMakeLists.temp
+		echo $2 > .wakatime-project;;
 	web) cp -r ~/dev/script/newp-template/web.template $2
 		cd $2
 		echo "name : $2" > .webconfig
