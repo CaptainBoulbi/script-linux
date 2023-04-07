@@ -26,10 +26,9 @@ export PATH="$HOME/dev/built/:$PATH"
 
 # source file
 source ~/dev/script/completion
-source /home/cptbb/downloads/git/bash-wakatime/bash-wakatime.sh
+#source /home/cptbb/downloads/git/bash-wakatime/bash-wakatime.sh
 
 # variable
-
 myip=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g')
 
 # # fun ?
@@ -49,6 +48,7 @@ shuf -n 1 ~/dev/script/mcphrase | figlet
 # alias
 alias cls="clear && neofetch"
 alias clr="clear"
+alias clm="clear && mcphrase"
 alias rm="trash"
 alias shut="shutdown 0"
 alias v="nvim"
@@ -84,14 +84,14 @@ alias gay-ouataz="figlet gay-ouataz | lolcat -p 0.5 2>/dev/null"
 alias tg="figlet TG "
 alias livres="cd ~/livres"
 alias lss="ls | grep -i"
-#alias fss="find . | grep -v \\\.git | grep -i"
+alias spinningrat="pqiv --fullscreen -t ~/videos/rat-spinning.gif"
 
 # alias avec parametre
-emoji(){ grep -i $1 ~/dev/emoji; }
+emoji(){ grep -i $1 ~/documents/emoji; }
 dev(){ cd ~/dev/$1; }
 cours(){ cd ~/cours/$1;}
 lsd(){ ls -d $1*/;}
 lsf(){ ls -p $1 | grep -v /$;}
 ls..(){ ls $1..;}
 ls.(){ ls -a $1 | grep ^\\.;}
-fss(){ find . | grep -v \\\.git | grep -i $1.[^/]*$; }
+fss(){ find . | grep -v \\\.git | grep -i $1[^/]*$; }
