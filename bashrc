@@ -85,6 +85,7 @@ alias tg="figlet TG "
 alias livres="cd ~/livres"
 alias lss="ls | grep -i"
 alias spinningrat="pqiv --fullscreen -t ~/videos/rat-spinning.gif"
+alias cleanindicator="ls -a ~ | wc -l"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
