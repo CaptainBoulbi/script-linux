@@ -84,8 +84,8 @@ alias gay-ouataz="figlet gay-ouataz | lolcat -p 0.5 2>/dev/null"
 alias tg="figlet TG "
 alias livres="cd ~/livres"
 alias lss="ls | grep -i"
-alias spinningrat="pqiv --fullscreen -t ~/videos/rat-spinning.gif"
-alias cleanindicator="ls -a ~ | wc -l"
+alias spinningrat="pqiv --fullscreen -t --background-pattern=white ~/videos/rat-spinning.gif"
+alias cleanindicator="ls -a ~ | wc -l | figlet"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
@@ -95,4 +95,4 @@ lsd(){ ls -d $1*/;}
 lsf(){ ls -p $1 | grep -v /$;}
 ls..(){ ls $1..;}
 ls.(){ ls -a $1 | grep ^\\.;}
-fss(){ find . | grep -v \\\.git | grep -i $1[^/]*$; }
+fss(){ find . | grep -v /\\.git/ | grep -v /\\.git$ | grep -i $1[^/]*$; }
