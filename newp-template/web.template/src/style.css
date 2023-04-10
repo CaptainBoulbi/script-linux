@@ -29,6 +29,10 @@ pre{
 	border-radius: 15px;
 	padding : 1rem;
 }
+code{
+	display: block;
+	overflow-x: scroll;
+}
 img{
 	display: block;
 	margin: auto;
