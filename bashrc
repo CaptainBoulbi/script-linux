@@ -68,7 +68,6 @@ alias quoi="echo feur && espeak -v fr-fr feur"
 alias espeak="espeak -v fr-fr"
 alias rick-roll="open https://youtu.be/dQw4w9WgXcQ 2>/dev/null"
 alias sl="sl -alFe"
-alias cgit="ls -d */ | xargs ls -a | grep ^.git$ | wc -l"
 alias back="cd - >/dev/null"
 alias important="cd ~/documents/important && open ."
 alias jobs="jobs -l"
@@ -85,7 +84,8 @@ alias tg="figlet TG "
 alias livres="cd ~/livres"
 alias spinningrat="pqiv --fullscreen -t --background-pattern=white ~/videos/rat-spinning.gif"
 alias cleanindicator="ls -a ~ | wc -l | figlet"
-alias checksrv="ssh bbsrv sh /script/arualiv.sh"
+alias srvcheck="ssh bbsrv sh /script/arualiv.sh"
+alias nbprj="expr \$(cgit ~/dev) - 2"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
@@ -97,3 +97,5 @@ ls..(){ ls $1..;}
 ls.(){ ls -a $1 | grep ^\\.;}
 fss(){ find $2 | grep -v \\.git | grep -v build | grep -i $1[^/]*$; }
 lss(){ ls $2 | grep -i $1; }
+cgit(){ [[ $1 = "" ]] && d="." || d=$1 && ls -d $d/*/ | xargs ls -a | grep ^\\.git$ | wc -l; }
+#alias cgit="ls -d */ | xargs ls -a | grep ^.git$ | wc -l"
