@@ -49,7 +49,7 @@ shuf -n 1 ~/dev/script/mcphrase | figlet
 alias cls="clear && neofetch"
 alias clr="clear"
 alias clm="clear && mcphrase"
-alias rm="trash"
+#alias rm="trash"
 alias shut="shutdown 0"
 alias v="nvim"
 alias g="git"
@@ -83,7 +83,7 @@ alias gay-ouataz="figlet gay-ouataz | lolcat -p 0.5 2>/dev/null"
 alias tg="figlet TG "
 alias livres="cd ~/livres"
 alias spinningrat="pqiv --fullscreen -t --background-pattern=white ~/videos/rat-spinning.gif"
-alias cleanindicator="ls -a ~ | wc -l | figlet"
+alias cleanindicator="ls -A ~ | wc -l | figlet"
 alias srvcheck="ssh bbsrv sh /script/arualiv.sh"
 alias nbprj="expr \$(cgit ~/dev) - 2"
 
@@ -98,4 +98,5 @@ ls.(){ ls -a $1 | grep ^\\.;}
 fss(){ find $2 | grep -v \\.git | grep -v build | grep -i $1[^/]*$; }
 lss(){ ls $2 | grep -i $1; }
 cgit(){ [[ $1 = "" ]] && d="." || d=$1 && ls -d $d/*/ | xargs ls -a | grep ^\\.git$ | wc -l; }
-#alias cgit="ls -d */ | xargs ls -a | grep ^.git$ | wc -l"
+lsc(){ ls $1 | wc -l; }
+lsac(){ ls -A $1 | wc -l; }

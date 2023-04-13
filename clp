@@ -6,4 +6,4 @@ if [[ $1 != "" ]]; then
 fi
 
 var=$(find . | grep -v "\\.git" | grep -v "build" | xargs file -i | grep text | sed "s/:.*//g" | xargs wc -l | grep total)
-echo "nombre de ligne :" ${var% total}
+echo ${var% total}
