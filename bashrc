@@ -86,6 +86,7 @@ alias spinningrat="pqiv --fullscreen -t --background-pattern=white ~/videos/rat-
 alias cleanindicator="ls -A ~ | wc -l | figlet"
 alias srvcheck="ssh bbsrv sh /script/arualiv.sh"
 alias nbprj="expr \$(cgit ~/dev) - 2"
+alias lsal="ls -al"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
@@ -100,3 +101,5 @@ lss(){ ls $2 | grep -i $1; }
 cgit(){ [[ $1 = "" ]] && d="." || d=$1 && ls -d $d/*/ | xargs ls -a | grep ^\\.git$ | wc -l; }
 lsc(){ ls $1 | wc -l; }
 lsac(){ ls -A $1 | wc -l; }
+waka(){ echo $1 > .wakatime-project; }
+lol(){ [[ $1 = "" ]] && fortune | cowsay -f tux | lolcat || cowsay -f tux $1 | lolcat; }
