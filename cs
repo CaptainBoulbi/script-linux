@@ -3,21 +3,21 @@
 # pour aide cs -h
 
 case $1 in
-	"-l") ls ~/dev/cheat-sheet
+	"-l") ls ~/dev/opt/cheat-sheet
 		exit;;
-	"-ln") ln -s ~/dev/cheat-sheet/$2 $3
+	"-ln") ln -s ~/dev/opt/cheat-sheet/$2 $3
 		exit;;
-	"-st") cd ~/dev/cheat-sheet
+	"-st") cd ~/dev/opt/cheat-sheet
 		git status
 		exit;;
-	"-ci") cd ~/dev/cheat-sheet
+	"-ci") cd ~/dev/opt/cheat-sheet
 		git add .
 		git commit -am "$2"
 		exit;;
-	"-log") cd ~/dev/cheat-sheet
+	"-log") cd ~/dev/opt/cheat-sheet
 		git plog
 		exit;;
-	"-ps") cd ~/dev/cheat-sheet
+	"-ps") cd ~/dev/opt/cheat-sheet
 		git push bbsrv
 		exit;;
 	"-h") echo "cs -h : affiche aide commande"
@@ -31,4 +31,4 @@ case $1 in
 		exit;;
 esac
 
-nvim ~/dev/cheat-sheet/$1
+nvim ~/dev/opt/cheat-sheet/$1

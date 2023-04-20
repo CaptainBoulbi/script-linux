@@ -21,8 +21,8 @@ set -o vi
 
 # add directorie to PATH
 export PATH="$HOME/dev/script/:$PATH"
-export PATH="$HOME/dev/script.download/:$PATH"
-export PATH="$HOME/dev/built/:$PATH"
+export PATH="$HOME/dev/opt/script.download/:$PATH"
+export PATH="$HOME/dev/opt/built/:$PATH"
 
 # source file
 source ~/dev/script/completion
@@ -41,15 +41,11 @@ myip=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g')
 # 	done &
 # fi
 
-# at start
-clear
-shuf -n 1 ~/dev/script/mcphrase | figlet
-
 # alias
 alias cls="clear && neofetch"
 alias clr="clear"
 alias clm="clear && mcphrase"
-#alias rm="trash"
+alias rm="trash"
 alias shut="shutdown 0"
 alias v="nvim"
 alias g="git"
@@ -85,7 +81,7 @@ alias livres="cd ~/livres"
 alias spinningrat="pqiv --fullscreen -t --background-pattern=white ~/videos/rat-spinning.gif"
 alias cleanindicator="ls -A ~ | wc -l | figlet"
 alias srvcheck="ssh bbsrv sh /script/arualiv.sh"
-alias nbprj="expr \$(cgit ~/dev) - 2"
+alias nbprj="expr \$(cgit ~/dev) - 1"
 alias lsal="ls -al"
 
 # alias avec parametre
@@ -103,3 +99,8 @@ lsc(){ ls $1 | wc -l; }
 lsac(){ ls -A $1 | wc -l; }
 waka(){ echo $1 > .wakatime-project; }
 lol(){ [[ $1 = "" ]] && fortune | cowsay -f tux | lolcat || cowsay -f tux $1 | lolcat; }
+cata(){ find -type f | grep -v \.git | grep -v build | xargs tail -n +1; }
+
+# at start
+clear
+mcphrase

@@ -22,7 +22,7 @@ complete -F cmpt_newp newp
 # }
 # complete -F cmpt_prj prj
 
-source ~/dev/script.download/git-completion.bash 
+source ~/dev/opt/script.download/git-completion.bash 
 __git_complete g git
 
 cmpt_cs(){
