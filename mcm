@@ -5,6 +5,11 @@
 load=$1
 cd ~/.minecraft/mods
 
+if [[ $load == "-l" ]]; then
+	ls .
+	exit
+fi
+
 for modpack in `ls --ignore=*.jar`; do
 	if [ $(ls $modpack | wc -l) -eq 0 ]; then
 		mv *.jar $modpack
