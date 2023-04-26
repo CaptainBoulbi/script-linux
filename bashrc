@@ -92,7 +92,7 @@ cours(){ cd ~/cours/$1;}
 lsd(){ ls -d $1*/;}
 lsf(){ ls -p $1 | grep -v /$;}
 ls..(){ ls $1..;}
-ls.(){ ls -a $1 | grep ^\\.;}
+ls.(){ ls -A $1 | grep ^\\.;}
 fss(){ find $2 | grep -v \\.git | grep -v build | grep -i $1[^/]*$; }
 lss(){ ls $2 | grep -i $1; }
 cgit(){ [[ $1 = "" ]] && d="." || d=$1 && ls -d $d/*/ | xargs ls -a | grep ^\\.git$ | wc -l; }
@@ -103,6 +103,7 @@ lol(){ [[ $1 = "" ]] && fortune | cowsay -f tux | lolcat || cowsay -f tux $1 | l
 cata(){ find -type f | grep -v \.git | grep -v build | xargs tail -n +1; }
 fgit(){ find | grep \\.git$ | sed s/\\.git//g; }
 lgit(){ fgit | fgit | grep --color=never ^\\./[^/]*/$ ; }
+
 # at start
 clear
 mcphrase
