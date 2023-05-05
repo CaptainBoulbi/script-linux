@@ -105,5 +105,5 @@ fgit(){ find | grep \\.git$ | sed s/\\.git//g; }
 lgit(){ fgit | fgit | grep --color=never ^\\./[^/]*/$ ; }
 
 # at start
-clear
-mcphrase
+# clear
+# mcphrase
