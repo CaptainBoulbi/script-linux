@@ -2,22 +2,24 @@
 # facilite l'utilisation et la création des cheat sheet + listage et lien
 # pour aide cs -h
 
+cs_folder=/home/cptbb/dev/opt/cheat-sheet
+
 case $1 in
-	"-l") ls ~/dev/opt/cheat-sheet
+	"-l") ls $cs_folder
 		exit;;
-	"-ln") ln -s ~/dev/opt/cheat-sheet/$2 $3
+	"-ln") ln -s $cs_folder/$2 $3
 		exit;;
-	"-st") cd ~/dev/opt/cheat-sheet
+	"-st") cd $cs_folder
 		git status
 		exit;;
-	"-ci") cd ~/dev/opt/cheat-sheet
+	"-ci") cd $cs_folder
 		git add .
 		git commit -am "$2"
 		exit;;
-	"-log") cd ~/dev/opt/cheat-sheet
+	"-log") cd $cs_folder
 		git plog
 		exit;;
-	"-ps") cd ~/dev/opt/cheat-sheet
+	"-ps") cd $cs_folder
 		git push bbsrv
 		exit;;
 	"-h") echo "cs -h : affiche aide commande"
@@ -31,4 +33,4 @@ case $1 in
 		exit;;
 esac
 
-nvim ~/dev/opt/cheat-sheet/$1
+nvim $cs_folder/$1

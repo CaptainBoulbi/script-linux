@@ -82,7 +82,7 @@ alias spinningrat="pqiv --fullscreen -t --background-pattern=white ~/videos/rat-
 alias cleanindicator="ls -A ~ | wc -l | figlet"
 alias srvcheck="ssh bbsrv sh /dock/script/arualiv.sh"
 alias nbprj="expr \$(cgit ~/dev) - 1"
-alias lsprj="ls ~/dev | grep -v opt | grep -v script"
+alias lsprj="ls ~/dev | grep -v opt | grep -v script | tr '\n' '\t' && echo"
 alias lsal="ls -al"
 
 # alias avec parametre

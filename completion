@@ -26,7 +26,7 @@ source ~/dev/opt/script.download/git-completion.bash
 __git_complete g git
 
 cmpt_cs(){
-	for opt in `ls ~/dev/cheat-sheet`; do
+	for opt in `ls ~/dev/opt/cheat-sheet`; do
 		COMPREPLY+=("$opt")
 	done
 }
