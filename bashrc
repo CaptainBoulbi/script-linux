@@ -103,6 +103,7 @@ lol(){ [[ $1 = "" ]] && fortune | cowsay -f tux | lolcat || cowsay -f tux $1 | l
 catall(){ find -type f | grep -v \.git | grep -v build | xargs file | grep text | sed "s/:.*$//g" | xargs tail -n +1; }
 fgit(){ find | grep \\.git$ | sed s/\\.git//g; }
 lgit(){ fgit | fgit | grep --color=never ^\\./[^/]*/$ ; }
+mkdirc(){ mkdir $1 && cd $1; }
 
 # at start
 # clear
