@@ -2,16 +2,24 @@
 # commande qui affiche des donnée utils sur le pc
 
 
+echo -e "\nmem utiliser" :
+
 ## memoire utilisé/total
 free -h | awk '/^Mem:/ {print $3 "/" $2}'
+
+echo -e "\ntemp CPU :"
 
 ## temperature CPU
 sensors | awk '/^Package/ {print $4}'
 # print $X si le resultat est pas bon, remplacer X par le bon nb param
 # necessite le paquet lm-sensors sur ubuntu sinon lm_sensors sur arch
 
+echo -e "\ntop10 prog ressource cpu :"
+
 ## top 10 prog qui prenne le plus de ressource cpu
 ps axch -o cmd:15,%cpu --sort=-%cpu | head
+
+echo -e "\ntop10 prog mem :"
 
 ## top 10 prog qui prenne le plus de memoire
 ps axch -o cmd:15,%mem --sort=-%mem | head
