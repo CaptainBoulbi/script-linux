@@ -80,11 +80,14 @@ alias tg="figlet TG "
 alias livres="cd ~/livres"
 alias spinningrat="pqiv --fullscreen -t --background-pattern=white ~/videos/rat-spinning.gif"
 alias cleanindicator="ls -A ~ | wc -l | figlet"
-alias srvcheck="ssh nbbsrv sh /dock/script/arualiv.sh"
+alias srvcheck="ssh nbbsrv sh /home/cptbbot/arualiv.sh"
 alias nbprj="expr \$(cgit ~/dev) - 1"
 alias lsprj="ls ~/dev | grep -v opt | grep -v script | tr '\n' '\t' && echo"
 alias lsal="ls -al"
 alias note="v $HOME/dev/opt/notes/global"
+alias list="ssh nlbbsrv docker exec mcsrv-create rcon-cli list"
+alias listf="ssh nlbbsrv docker exec mcsrv-f rcon-cli list"
+alias lista="list; listf"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
