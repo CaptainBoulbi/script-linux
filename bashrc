@@ -88,6 +88,8 @@ alias note="v $HOME/dev/opt/notes/global"
 alias list="ssh nlbbsrv docker exec mcsrv-create rcon-cli list"
 alias listf="ssh nlbbsrv docker exec mcsrv-f rcon-cli list"
 alias lista="list; listf"
+alias cpmake="cp $HOME/dev/script/Makefile ."
+alias vbashrc="v $HOME/dev/script/bashrc"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
