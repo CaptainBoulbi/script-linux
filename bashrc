@@ -111,6 +111,8 @@ fgit(){ find | grep \\.git$ | sed s/\\.git//g; }
 lgit(){ fgit | fgit | grep --color=never ^\\./[^/]*/$ ; }
 mkdirc(){ mkdir $1 && cd $1; }
 
+alias sgit="for i in \$(lgit); do echo -e \"\n\$i\" && cd \$i && git status && back; done"
+
 # at start
 # clear
 # mcphrase
