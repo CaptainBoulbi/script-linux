@@ -33,7 +33,7 @@ build/%.o : src/%.$(EXT)
 	$(CC) $(FLAGS) -o $@ -c $<
 
 run : all
-	./$(BIN)
+	./$(BIN) $(input)
 
 clean :
 	rm -rf build/*
@@ -44,11 +44,9 @@ test : $(OBJ)
 	./build/$(file:.$(EXT)=)
 
 alltest :
-	@for f in $(subst ./test/,,$(TEST)); do make -s test file=$$f; done
-
-# unzip : mkdir exemple && tar -xvf exemple.tgz -C exemple
-dist : clean
-	tar zcvf build/$(PROJECTNAME).tgz .
+	@for f in $(subst ./test/,,$(TEST)); do \
+		$(CC) $(FLAGS) -o build/$${f%.$(EXT)} test/$$f && ./build/$${f%.$(EXT)};\
+		done
 
 check :
 	cppcheck --enable=all --suppress=missingIncludeSystem $(foreach I,$(INCDIRS),-I$(I)) .
@@ -58,4 +56,9 @@ info :
 	$(info put what ever)
 	@echo you want
 
-.PHONY : all run clean test alltest dist check info
+# unzip : tar -xvf exemple.tgz
+dist : clean
+	$(info /!\ project folder has to be named $(PROJECTNAME) /!\ )
+	cd .. && tar zcvf $(PROJECTNAME)/build/$(PROJECTNAME).tgz $(PROJECTNAME) >/dev/null
+
+.PHONY : all run clean test alltest check info dist 
