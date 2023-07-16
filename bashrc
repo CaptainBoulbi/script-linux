@@ -90,6 +90,9 @@ alias listf="ssh nbbsrv docker exec mcsrv-f rcon-cli list"
 alias lista="list; listf"
 alias cpmake="cp $HOME/dev/script/Makefile ."
 alias vbashrc="v $HOME/dev/script/bashrc"
+alias obsidian="~/downloads/Obsidian-1.3.5.AppImage >/dev/null 2>/dev/null  &"
+alias hamood="figlet habibi | lolcat -p 0.5 && espeak -v af habibi"
+alias please="sudo"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
