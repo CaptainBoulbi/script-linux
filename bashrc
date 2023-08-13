@@ -45,6 +45,7 @@ myip=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g')
 alias cls="clear && neofetch"
 alias clr="clear"
 alias clm="clear && mcphrase"
+alias cll="clear && ls"
 alias rm="trash"
 alias shut="shutdown 0"
 alias v="nvim"
@@ -57,6 +58,7 @@ alias ....="cd ../../.."
 alias send-nude="pqiv --fullscreen -t ~/pictures/nude.jpeg"
 alias libresprite="~/documents/libresprite.AppImage 1>/dev/null &"
 alias lsa="ls -a"
+alias lsA="ls -A"
 alias lsl="ls -l"
 alias bashrc="nvim ~/dev/script/bashrc && exec bash"
 alias agenda="v ~/documents/agenda"
@@ -93,6 +95,7 @@ alias vbashrc="v $HOME/dev/script/bashrc"
 alias obsidian="~/downloads/Obsidian-1.3.5.AppImage >/dev/null 2>/dev/null  &"
 alias hamood="figlet habibi | lolcat -p 0.5 && espeak -v af habibi"
 alias please="sudo"
+alias m="make"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
@@ -108,11 +111,13 @@ cgit(){ [[ $1 = "" ]] && d="." || d=$1 && ls -d $d/*/ | xargs ls -a | grep ^\\.g
 lsc(){ ls $1 | wc -l; }
 lsac(){ ls -A $1 | wc -l; }
 waka(){ echo $1 > .wakatime-project; }
-lol(){ [[ $1 = "" ]] && fortune | cowsay -f tux | lolcat || cowsay -f tux $1 | lolcat; }
+lole(){ [[ $1 = "" ]] && WTS=$(fortune) || WTS=$1; cowsay -f tux "$WTS" | lolcat && espeak -v en-us "$WTS"; }
+lol(){ [[ $1 = "" ]] && WTS=$(fortune) || WTS=$1; cowsay -f tux "$WTS" | lolcat && espeak -v fr-fr "$WTS"; }
 catall(){ find -type f | grep -v \.git | grep -v build | xargs file | grep text | sed "s/:.*$//g" | xargs tail -n +1; }
 fgit(){ find | grep \\.git$ | sed s/\\.git//g; }
 lgit(){ fgit | fgit | grep --color=never ^\\./[^/]*/$ ; }
-mkdirc(){ mkdir $1 && cd $1; }
+cmkdir(){ mkdir $1 && cd $1; }
+clo(){ clr && lole $1; }
 
 alias sgit="for i in \$(lgit); do echo -e \"\n\$i\" && cd \$i && git status && back; done"
 
