@@ -43,7 +43,8 @@ myip=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g')
 
 # alias
 alias cls="clear && neofetch"
-alias clr="clear"
+#alias clr="clear"
+alias clr="clm"
 alias clm="clear && mcphrase"
 alias cll="clear && ls"
 alias rm="trash"
@@ -55,7 +56,7 @@ alias hlm="dev; cls"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias send-nude="pqiv --fullscreen -t ~/pictures/nude.jpeg"
+alias send-nude="pqiv --fullscreen -ti ~/pictures/nude.jpeg"
 alias libresprite="~/documents/libresprite.AppImage 1>/dev/null &"
 alias lsa="ls -a"
 alias lsA="ls -A"
@@ -80,7 +81,7 @@ alias mcphrase="shuf -n 1 ~/dev/script/mcphrase | figlet -w 999"
 alias gay-ouataz="figlet gay-ouataz | lolcat -p 0.5 2>/dev/null"
 alias tg="figlet TG "
 alias livres="cd ~/livres"
-alias spinningrat="pqiv --fullscreen -t --background-pattern=white ~/videos/rat-spinning.gif"
+alias spinningrat="pqiv --fullscreen -ti --background-pattern=white ~/videos/rat-spinning.gif"
 alias cleanindicator="ls -A ~ | wc -l | figlet"
 alias srvcheck="ssh nbbsrv sh /home/cptbbot/arualiv.sh"
 alias nbprj="expr \$(cgit ~/dev) - 1"
@@ -96,7 +97,9 @@ alias obsidian="~/downloads/Obsidian-1.3.5.AppImage >/dev/null 2>/dev/null  &"
 alias hamood="figlet habibi | lolcat -p 0.5 && espeak -v af habibi"
 alias please="sudo"
 alias m="make"
-
+alias mr="make run"
+alias refresh="echo -e '\033[0m' '\033[?25h' '\033[?1049l'"
+alias mpv="mpv --player-operation-mode=pseudo-gui --shuffle=yes"
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
 dev(){ cd ~/dev/$1; }
