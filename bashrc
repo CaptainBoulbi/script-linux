@@ -85,12 +85,13 @@ alias spinningrat="pqiv --fullscreen -ti --background-pattern=white ~/videos/rat
 alias cleanindicator="ls -A ~ | wc -l | figlet"
 alias srvcheck="ssh nbbsrv sh /home/cptbbot/arualiv.sh"
 alias nbprj="expr \$(cgit ~/dev) - 1"
-alias lsprj="ls ~/dev | grep -v opt | grep -v script | tr '\n' '\t' && echo"
+alias lsprj="ls ~/dev | grep -v opt | grep -v script | tr '\n' ' ' && echo"
 alias lsal="ls -al"
 alias note="v $HOME/dev/opt/notes/global"
 alias list="ssh nbbsrv docker exec mcsrv-create rcon-cli list"
 alias listf="ssh nbbsrv docker exec mcsrv-f rcon-cli list"
-alias lista="list; listf"
+alias listr="ssh nbbsrv docker exec mcsrv-ram rcon-cli list"
+alias lista="list; listf; listr"
 alias cpmake="cp $HOME/dev/script/Makefile ."
 alias vbashrc="v $HOME/dev/script/bashrc"
 alias obsidian="~/downloads/Obsidian-1.3.5.AppImage >/dev/null 2>/dev/null  &"
@@ -100,6 +101,10 @@ alias m="make"
 alias mr="make run"
 alias refresh="echo -e '\033[0m' '\033[?25h' '\033[?1049l'"
 alias mpv="mpv --player-operation-mode=pseudo-gui --shuffle=yes"
+alias space="echo -e '\033[?25l' && clear && read && echo -e '\033[?25h'"
+alias lampp="sudo /opt/lampp/lampp"
+alias clean="alias clr=\"clear\""
+
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
 dev(){ cd ~/dev/$1; }
@@ -121,6 +126,7 @@ fgit(){ find | grep \\.git$ | sed s/\\.git//g; }
 lgit(){ fgit | fgit | grep --color=never ^\\./[^/]*/$ ; }
 cmkdir(){ mkdir $1 && cd $1; }
 clo(){ clr && lole $1; }
+alias elephant="pqiv --fullscreen -ti ~/pictures/dall-e"
 
 alias sgit="for i in \$(lgit); do echo -e \"\n\$i\" && cd \$i && git status && back; done"
 

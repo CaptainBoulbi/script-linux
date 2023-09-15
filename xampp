@@ -1,0 +1,7 @@
+#!/bin/bash
+sudo systemctl stop apache2
+sudo /opt/lampp/lampp start
+echo "appuyez sur entrez pour quitter xampp"
+read
+sudo /opt/lampp/lampp stop
+sudo systemctl start apache2

@@ -1,0 +1,21 @@
+#!/bin/bash
+# mdr sa marche vraiment pas du tout
+
+lin=50
+val=$lin
+max=$(wc -l < $1) + $lin
+input=
+
+while true; do
+	awk "NR >= $(expr $val - $lin) && NR <= $val" $1
+	read $input
+	echo $input
+	if [ "$input" = "q" ]; then
+		echo quit
+		break
+	fi
+	val+=$lin
+	if (($val > $max)); then
+		val=$max
+	fi
+done
