@@ -104,6 +104,9 @@ alias mpv="mpv --player-operation-mode=pseudo-gui --shuffle=yes"
 alias space="echo -e '\033[?25l' && clear && read && echo -e '\033[?25h'"
 alias lampp="sudo /opt/lampp/lampp"
 alias clean="alias clr=\"clear\""
+alias oracle="cd ~/downloads/sqldeveloper/ && ./sqldeveloper.sh"
+alias elephant="pqiv --fullscreen -ti ~/pictures/dall-e"
+alias l="if [ \$(pwd) == \"\$HOME/dev\" ]; then lsprj; else ls; fi"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
@@ -126,8 +129,6 @@ fgit(){ find | grep \\.git$ | sed s/\\.git//g; }
 lgit(){ fgit | fgit | grep --color=never ^\\./[^/]*/$ ; }
 cmkdir(){ mkdir $1 && cd $1; }
 clo(){ clr && lole $1; }
-alias elephant="pqiv --fullscreen -ti ~/pictures/dall-e"
-
 alias sgit="for i in \$(lgit); do echo -e \"\n\$i\" && cd \$i && git status && back; done"
 
 # at start
