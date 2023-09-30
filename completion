@@ -31,3 +31,5 @@ cmpt_cs(){
 	done
 }
 complete -F cmpt_cs cs
+
+source ~/dev/opt/script.download/completion.mdbook
