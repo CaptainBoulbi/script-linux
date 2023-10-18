@@ -106,7 +106,7 @@ alias lampp="sudo /opt/lampp/lampp"
 alias clean="alias clr=\"clear\""
 alias oracle="cd ~/downloads/sqldeveloper/ && ./sqldeveloper.sh"
 alias elephant="pqiv --fullscreen -ti ~/pictures/dall-e"
-alias l="if [ \$(pwd) == \"\$HOME/dev\" ]; then lsprj; else ls; fi"
+alias l="if [ \$(pwd) == \"\$HOME/dev\" ]; then lsprj; else ls $*; fi"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
