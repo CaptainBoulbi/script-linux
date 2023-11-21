@@ -1,8 +1,8 @@
-PROJECTNAME=MasterMakefile
+PROJECTNAME=gol
 BIN=build/$(PROJECTNAME)
-CC=g++
+CC=gcc
 
-EXT=cpp
+EXT=c
 INCFOLDERS=include lib
 RECURSIVE_INCLUDE=false
 ifeq ($(RECURSIVE_INCLUDE), true)
@@ -99,7 +99,8 @@ push :
 install : dist
 	cp Makefile ../script
 	mv build/$(PROJECTNAME).tgz ../opt/archive
-	cd .. && rm -rf $(PROJECTNAME)
+
+#cd .. && rm -rf $(PROJECTNAME)
 
 info :
 	$(info put what ever)
