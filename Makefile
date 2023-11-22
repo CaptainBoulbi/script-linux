@@ -83,6 +83,7 @@ clean :
 check :
 	cppcheck --enable=all --suppress=missingIncludeSystem $(foreach I,$(INCDIRS),-I$(I)) .
 	flawfinder .
+	clang-tidy $(SRC) $(shell find . -name "*.h" -path "./include/*")
 
 debug : $(BIN)
 	gdb $< $(input)
