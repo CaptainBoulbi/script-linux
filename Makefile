@@ -34,13 +34,13 @@ $(shell mkdir -p build)
 all : $(BIN)
 
 $(BIN) : $(OBJ) $(LIBO)
-	$(CC) $(FLAGS) -o $@ $^ -fanalyzer
+	$(CC) $(FLAGS) -o $@ $^
 
 -include $(OBJ:.o=.d) $(LIBO:.o=.d)
 
 build/%.o : src/%.$(EXT)
 	@mkdir -p $(@D)
-	$(CC) $(FLAGS) -o $@ -c $< -fanalyzer
+	$(CC) $(FLAGS) -o $@ -c $<
 build/%.o : lib/%.$(EXT)
 	@mkdir -p $(@D)
 	$(CC) $(FLAGS) -o $@ -c $<
@@ -83,9 +83,6 @@ clean :
 check :
 	cppcheck --enable=all --suppress=missingIncludeSystem $(foreach I,$(INCDIRS),-I$(I)) .
 	flawfinder .
-	clang-tidy $(SRC) $(shell find . -name "*.h" -path "./include/*")
-	gcc -fanalyzer $(SRC) $(FLAGS)
-	rm a-*.d a.out
 
 debug : $(BIN)
 	gdb $< $(input)
@@ -102,8 +99,7 @@ push :
 install : dist
 	cp Makefile ../script
 	mv build/$(PROJECTNAME).tgz ../opt/archive
-
-#cd .. && rm -rf $(PROJECTNAME)
+	cd .. && rm -rf $(PROJECTNAME)
 
 info :
 	$(info put what ever)
