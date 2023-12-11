@@ -23,6 +23,7 @@ set -o vi
 export PATH="$HOME/dev/script/:$PATH"
 export PATH="$HOME/dev/opt/script.download/:$PATH"
 export PATH="$HOME/dev/opt/built/:$PATH"
+export EDITOR="nvim"
 
 # source file
 source ~/dev/script/completion
@@ -112,11 +113,13 @@ alias muz="mpv ~/music &"
 alias krunker="~/downloads/setup.AppImage"
 alias :wq="echo don\'t worry, it\'s saved"
 alias coredir="echo /var/lib/apport/coredump"
+alias man="man -L fr"
+alias todo="v $HOME/dev/opt/notes/TODO"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
-dev(){ cd ~/dev/$1; }
-cours(){ cd ~/cours/$1;}
+dev(){ cd ~/dev/*$1*; }
+cours(){ cd ~/cours/*$1*;}
 lsd(){ ls -d $1*/;}
 lsf(){ ls -p $1 | grep -v /$;}
 ls..(){ ls $1..;}

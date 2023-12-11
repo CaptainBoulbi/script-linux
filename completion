@@ -33,3 +33,5 @@ cmpt_cs(){
 complete -F cmpt_cs cs
 
 source ~/dev/opt/script.download/completion.mdbook
+
+source ~/dev/opt/script.download/hugo-completion.sh
