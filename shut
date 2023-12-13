@@ -1,0 +1,5 @@
+#!/bin/bash
+
+x=$(echo -e "OUI\nNON" | dmenu -i -p "éteindre PC ?")
+
+[ $x == "OUI" ] && echo "ration" && shutdown 0 || echo "pc go mimir annuler"
