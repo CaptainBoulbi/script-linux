@@ -1,5 +1,7 @@
 #!/bin/bash
 
+while true; do
+
 date=$(date +"%a %d %b. %Y")
 hour=$(date +"%H:%M")
 battery=$(upower -i $(upower -e | grep BAT) | grep percentage | sed "s/ //g" | cut -d ":" -f2)
@@ -9,3 +11,6 @@ brightness=$(echo "100 * $(xrandr --prop --verbose | grep -A10 " connected" | gr
 echo "statussed" >> /home/cptbb/tozi
 
 xsetroot -name "| lum: $brightness | vol: $volume | bat: $battery | $date | $hour |"
+
+sleep 15
+done
