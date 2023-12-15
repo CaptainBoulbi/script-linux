@@ -126,8 +126,8 @@ alias kys="shut"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
-dev(){ cd ~/dev/*$1*; }
-cours(){ cd ~/cours/*$1*;}
+dev(){ [ -z $1 ] && cd ~/dev/*$1* || cd ~/dev/ ;}
+cours(){ [ -z $1 ] && cd ~/cours/*$1* || cd ~/cours/;}
 lsd(){ ls -d $1*/;}
 lsf(){ ls -p $1 | grep -v /$;}
 ls..(){ ls $1..;}
