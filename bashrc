@@ -123,6 +123,7 @@ alias coredir="echo /var/lib/apport/coredump"
 alias man="man -L fr"
 alias todo="v $HOME/dev/opt/notes/TODO"
 alias kys="shut"
+alias lastcd="back && pwd && back"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
