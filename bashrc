@@ -50,7 +50,7 @@ myip=$(dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g')
 # fi
 
 # alias
-alias cls="clear && pfetch"
+alias cls="clear && pfetch && git-graph"
 #alias clr="clear"
 alias clr="clm"
 alias clm="clear && mcphrase"
@@ -59,7 +59,7 @@ alias rm="trash"
 alias shut="figlet 'finito' && sleep 0.5; shutdown 0"
 alias v="nvim"
 alias g="git"
-alias hm="gnome-terminal --full-screen -- bash -c \"cd ~/dev && pfetch; exec bash\" && exit"
+alias hm="gnome-terminal --full-screen -- bash -c \"exec bash; cd ~/dev && cls\" && exit"
 alias hlm="dev; cls"
 alias ..="cd .."
 alias ...="cd ../.."
