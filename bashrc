@@ -112,7 +112,7 @@ alias refresh="echo -e '\033[0m' '\033[?25h' '\033[?1049l'"
 alias mpv="mpv --player-operation-mode=pseudo-gui --shuffle=yes"
 alias space="echo -e '\033[?25l' && clear && read && echo -e '\033[?25h'"
 alias lampp="sudo /opt/lampp/lampp"
-alias clean="alias clr=\"clear\""
+alias clean="alias clr=\"clear\" && clear"
 alias oracle="cd ~/downloads/sqldeveloper/ && ./sqldeveloper.sh"
 alias elephant="pqiv --fullscreen -ti ~/pictures/dall-e"
 alias l="if [ \$(pwd) == \"\$HOME/dev\" ]; then lsprj; else ls $*; fi"
@@ -125,7 +125,8 @@ alias todo="v $HOME/dev/opt/notes/TODO"
 alias kys="shut"
 alias lastcd="back && pwd && back"
 alias sae="cd /opt/lampp/htdocs/SAE_Reseaux"
-alias git-graph="gh graph"
+alias unity="/home/cptbb/Unity-2023.2.8f1/Editor/Unity"
+alias mantra="v $HOME/dev/opt/notes/mantra"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }

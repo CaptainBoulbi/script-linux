@@ -1,0 +1,52 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+  user=CaptainBoulbi;
+else
+  user=$1;
+fi;
+
+tab=$(curl --silent https://github.com/$user | grep contribution-day-component | cut -d' ' -f25,26 | sed "s/^id=\"contribution-day-component-//" | sed "s/\" data-level=\"/:/" | sed "s/-/:/" | sed "s/\"$//" | sed "/^$/d")
+
+CR="\033[0m"
+C0="\033[48;2;22;27;34m"
+C1="\033[48;2;14;68;41m"
+C2="\033[48;2;0;109;50m"
+C3="\033[48;2;38;166;65m"
+C4="\033[48;2;57;211;83m"
+CE="\033[41m"
+
+line=0
+
+for data in $tab; do 
+  row=$(echo $data | cut -d':' -f1);
+  lev=$(echo $data | cut -d':' -f3);
+
+  if [[ $row -gt $line ]]; then
+    line=$line+1;
+    echo -e $CR;
+  fi
+
+  case $lev in
+    0)
+      echo -ne $C0 ' ';
+      ;;
+    1)
+      echo -ne $C1 ' ';
+      ;;
+    2)
+      echo -ne $C2 ' ';
+      ;;
+    3)
+      echo -ne $C3 ' ';
+      ;;
+    4)
+      echo -ne $C4 ' ';
+      ;;
+    *)
+      echo -ne $CE ' ';
+      ;;
+  esac
+done
+
+echo -e $CR;
