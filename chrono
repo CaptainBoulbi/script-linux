@@ -1,0 +1,48 @@
+#!/bin/bash
+
+h=0
+m=0
+s=0
+direction=1
+
+function chrono() {
+  while true; do
+    echo -en "\r$h:$m:$s   "
+    sleep 1
+
+    s=$(($s+$direction))
+
+    if [ $s -ge 60 ]; then
+      s=0
+      m=$(($m+$direction))
+    elif [ $s -lt 0 ]; then
+      s=59
+      m=$(($m+$direction))
+    fi
+
+    if [ $m -ge 60 ]; then
+      m=0
+      h=$(($h+$direction))
+    elif [ $m -lt 0 ]; then
+      m=59
+      h=$(($h+$direction))
+    fi
+
+    if [ $s -eq 0 -a $m -eq 0 -a $h -eq 0 ]; then
+      echo -e "\r$h:$m:$s   "
+      break
+    fi
+  done
+}
+
+if [ ! -z $1 ]; then
+  h=$(echo $1 | cut -d ':' -f1)
+  m=$(echo $1 | cut -d ':' -f2)
+  s=$(echo $1 | cut -d ':' -f3)
+  direction=-1
+  chrono
+else
+  chrono &
+  read
+  kill %1
+fi
