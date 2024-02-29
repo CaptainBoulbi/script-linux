@@ -9,7 +9,7 @@ cmpt_mcm(){
 complete -F cmpt_mcm mcm
 
 cmpt_newp(){
-	for opt in `ls ~/dev/script/newp-template`; do
+	for opt in `ls $SCRIPT_PATH/newp-template`; do
 		COMPREPLY+=("${opt%.*}")
 	done
 }
@@ -22,16 +22,16 @@ complete -F cmpt_newp newp
 # }
 # complete -F cmpt_prj prj
 
-source ~/dev/opt/script.download/git-completion.bash 
+source $DEV_OPT_PATH/script.download/git-completion.bash 
 __git_complete g git
 
 cmpt_cs(){
-	for opt in `ls ~/dev/opt/cheat-sheet`; do
+	for opt in `ls $DEV_OPT_PATH/cheat-sheet`; do
 		COMPREPLY+=("$opt")
 	done
 }
 complete -F cmpt_cs cs
 
-source ~/dev/opt/script.download/completion.mdbook
+source $DEV_OPT_PATH/script.download/completion.mdbook
 
-source ~/dev/opt/script.download/hugo-completion.sh
+source $DEV_OPT_PATH/script.download/hugo-completion.sh
