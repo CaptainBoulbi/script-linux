@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# sudo init 3
-# sudo systemctl start gdm3

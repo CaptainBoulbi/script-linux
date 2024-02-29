@@ -1,15 +1,22 @@
 #!/bin/bash
 
-while true; do
+status_bar(){
+    wifi=$(/usr/sbin/iwgetid -r)
+    date=$(date +"%a %d %b. %Y")
+    hour=$(date +"%H:%M")
+    battery=$(upower -i $(upower -e | grep BAT) | grep percentage | sed "s/ //g" | cut -d ":" -f2)
+    sound_card=$(cat ~/.config/sound_card)
+    volume=$(amixer get $sound_card | grep % | head -n 1 | cut -f7 -d' ' | sed "s/\[\|\]//g")
+    brightness=$(~/dev/script/luminosity get)
 
-wifi=$(iwgetid -r)
-date=$(date +"%a %d %b. %Y")
-hour=$(date +"%H:%M")
-battery=$(upower -i $(upower -e | grep BAT) | grep percentage | sed "s/ //g" | cut -d ":" -f2)
-volume=$(amixer get Master | grep dB | head -n 1 | cut -f7 -d' ' | sed "s/\[\|\]//g")
-brightness=$(echo "100 * $(xrandr --prop --verbose | grep -A10 " connected" | grep Brightness | cut -f2 -d' ')" | bc | sed "s/\.[0-9]$/%/g")
+    xsetroot -name "| res: $wifi | lum: $brightness | vol: $volume [$sound_card] | bat: $battery | $date | $hour |"
+}
 
-xsetroot -name "| res: $wifi | lum: $brightness | vol: $volume | bat: $battery | $date | $hour |"
-
-sleep 15
-done
+if [[ $1 == "once" ]]; then
+    status_bar
+else
+    while true; do
+        status_bar
+        sleep 15
+    done
+fi

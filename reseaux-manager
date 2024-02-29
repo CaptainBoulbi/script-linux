@@ -1,0 +1,15 @@
+#!/bin/bash
+
+to_ssid=$(nmcli device wifi list | awk '{print $2}' | sed -e "/--/d" | sed "/BSSID/d" | dmenu -l 10)
+#to_ssid=$(cat ~/wifi | awk '{print $2}' | sed -e "/--/d" | sed "/BSSID/d" | dmenu -i -l 10)
+
+need_pass=$(echo -e "YES\nNO" | dmenu -i -p "need password?")
+
+if [[ $need_pass == "NO" ]]; then
+    nmcli device wifi connect $to_ssid
+else
+    password=$(echo -e "azerty\n1234\nhamood" | dmenu -p "enter password:")
+    nmcli device wifi connect $to_ssid password $password
+fi
+
+statusbar.sh once

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+wallpath=$OPT_PATH/img/funny-linux
+img=$(ls $wallpath | dmenu -l 10 -p "wallpaper:")
+
+feh --bg-scale $wallpath/$img

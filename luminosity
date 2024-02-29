@@ -1,0 +1,28 @@
+#!/bin/bash
+
+curr=$(xrandr --prop --verbose | grep -A10 " connected" | grep Brightness | cut -f2 -d' ' | head -n 1)
+case $1 in
+    "get")
+        echo "100 * $curr" | bc | sed "s/\.[0-9]*$/%/g"
+        exit
+       ;;
+    "add")
+        curr=$(echo "$curr + 0.05" | bc)
+        ;;
+    "min")
+        curr=$(echo "$curr - 0.05" | bc)
+        ;;
+esac
+
+if [ $(echo "$curr < 0.1" | bc) -eq 1 ]; then
+    curr=0.1
+elif [ $(echo "$curr > 1" | bc) -eq 1 ]; then
+    curr=1
+fi
+
+monitors=$(xrandr --listmonitors | sort -r | cut -d' ' -f6)
+for m in $monitors; do
+    xrandr --output $m --brightness $curr
+done
+
+statusbar.sh once

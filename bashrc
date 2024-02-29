@@ -27,13 +27,21 @@ WHITE='\033[1;37m'
 set -o vi
 
 # add directorie to PATH
-export PATH="$HOME/dev/script/:$PATH"
-export PATH="$HOME/dev/opt/script.download/:$PATH"
-export PATH="$HOME/dev/opt/built/:$PATH"
+export DEV_PATH="$HOME/dev"
+export OPT_PATH="$HOME/opt"
+export DEV_OPT_PATH="$OPT_PATH/dev"
+export SCRIPT_PATH="$DEV_PATH/script"
+
+export PATH="$SCRIPT_PATH/:$PATH"
+export PATH="$SCRIPT_PATH.download/:$PATH"
+export PATH="$DEV_PATH/opt/built/:$PATH"
+export PATH="/usr/sbin:$PATH"
 export EDITOR="nvim"
 
+export SOUND_CARD=$(amixer scontrols | head -n 1 | cut -d "'" -f2)
+
 # source file
-source ~/dev/script/completion
+source $SCRIPT_PATH/completion
 #source /home/cptbb/downloads/git/bash-wakatime/bash-wakatime.sh
 
 # variable
@@ -59,7 +67,7 @@ alias rm="trash"
 alias shut="figlet 'finito' && sleep 0.5; shutdown 0"
 alias v="nvim"
 alias g="git"
-alias hm="gnome-terminal --full-screen -- bash -c \"exec bash; cd ~/dev && cls\" && exit"
+alias hm="gnome-terminal --full-screen -- bash -c \"exec bash; cd $DEV_PATH && cls\" && exit"
 alias hlm="dev; cls"
 alias ..="cd .."
 alias ...="cd ../.."
@@ -69,7 +77,7 @@ alias libresprite="~/documents/libresprite.AppImage 1>/dev/null &"
 alias lsa="ls -a"
 alias lsA="ls -A"
 alias lsl="ls -l"
-alias bashrc="nvim ~/dev/script/bashrc && exec bash"
+alias bashrc="nvim $SCRIPT_PATH/bashrc && exec bash"
 alias agenda="v ~/documents/agenda"
 alias quoi="echo feur && espeak -v fr-fr feur"
 alias espeak="espeak -v fr-fr"
@@ -85,7 +93,7 @@ alias pipe="pipes.sh -r 0 -p 5"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
 alias laverite="echo -n 'linux > ' && echo wingay | lolcat -p 0.2"
-alias mcphrase="shuf -n 1 ~/dev/script/mcphrase | figlet -w 999"
+alias mcphrase="shuf -n 1 $SCRIPT_PATH/mcphrase | figlet -w 999"
 alias gay-ouataz="figlet gay-ouataz | lolcat -p 0.5 2>/dev/null"
 alias tg="figlet TG "
 alias livres="cd ~/livres"
@@ -93,16 +101,16 @@ alias spinningrat="pqiv --fullscreen -ti --background-pattern=white ~/videos/rat
 alias cleanindicator="ls -A ~ | wc -l | figlet"
 #alias srvcheck="ssh nbbsrv sh /home/cptbbot/arualiv.sh"
 alias srvcheck="echo no srv ?"
-alias nbprj="expr \$(cgit ~/dev) - 1"
-alias lsprj="ls ~/dev | grep -v opt | grep -v script | tr '\n' ' ' && echo"
+alias nbprj="expr \$(cgit $DEV_PATH) - 1"
+alias lsprj="ls $DEV_PATH | grep -v opt | grep -v script | tr '\n' ' ' && echo"
 alias lsal="ls -al"
-alias note="v $HOME/dev/opt/notes/global"
+alias note="v $DEV_PATH/opt/notes/global"
 alias list="ssh nbbsrv docker exec mcsrv-create rcon-cli list"
 alias listf="ssh nbbsrv docker exec mcsrv-f rcon-cli list"
 alias listr="ssh nbbsrv docker exec mcsrv-ram rcon-cli list"
 alias lista="list; listf; listr"
-alias cpmake="cp $HOME/dev/script/Makefile ."
-alias vbashrc="v $HOME/dev/script/bashrc"
+alias cpmake="cp $SCRIPT_PATH/Makefile ."
+alias vbashrc="v $SCRIPT_PATH/bashrc"
 alias obsidian="~/downloads/Obsidian-1.3.5.AppImage >/dev/null 2>/dev/null  &"
 alias hamood="figlet habibi | lolcat -p 0.5 && espeak -v af habibi"
 alias please="sudo"
@@ -115,22 +123,23 @@ alias lampp="sudo /opt/lampp/lampp"
 alias clean="alias clr=\"clear\" && clear"
 alias oracle="cd ~/downloads/sqldeveloper/ && ./sqldeveloper.sh"
 alias elephant="pqiv --fullscreen -ti ~/pictures/dall-e"
-alias l="if [ \$(pwd) == \"\$HOME/dev\" ]; then lsprj; else ls $*; fi"
+alias l="if [ \$(pwd) == \"\$DEV_PATH\" ]; then lsprj; else ls $*; fi"
 alias muz="mpv ~/music &"
 alias krunker="~/downloads/setup.AppImage"
 alias :wq="echo don\'t worry, it\'s saved"
 alias coredir="echo /var/lib/apport/coredump"
 alias man="man -L fr"
-alias todo="v $HOME/dev/opt/notes/TODO"
+alias todo="v $DEV_PATH/opt/notes/TODO"
 alias kys="shut"
 alias lastcd="back && pwd && back"
 alias sae="cd /opt/lampp/htdocs/SAE_Reseaux"
 alias unity="/home/cptbb/Unity-2023.2.8f1/Editor/Unity"
-alias mantra="v $HOME/dev/opt/notes/mantra"
+alias mantra="v $DEV_PATH/opt/notes/mantra"
+alias qr-network="nmcli device wifi show-password"
 
 # alias avec parametre
 emoji(){ grep -i $1 ~/documents/emoji; }
-dev(){ [ -z $1 ] && cd ~/dev/ || cd ~/dev/*$1* ;}
+dev(){ [ -z $1 ] && cd $DEV_PATH/ || cd $DEV_PATH/*$1* ;}
 cours(){ [ -z $1 ] && cd ~/cours/ || cd ~/cours/*$1* ;}
 lsd(){ ls -d $1*/;}
 lsf(){ ls -p $1 | grep -v /$;}

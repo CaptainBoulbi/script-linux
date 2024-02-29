@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo $(amixer scontrols | cut -d "'" -f2 | dmenu -l 10) > $XDG_CONFIG_HOME/sound_card
+
+statusbar.sh once

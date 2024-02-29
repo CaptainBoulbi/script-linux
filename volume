@@ -1,0 +1,16 @@
+#!/bin/bash
+
+sound_card=$(cat $XDG_CONFIG_HOME/sound_card)
+lev=$(amixer get $sound_card | grep % | head -n 1 | cut -f7 -d' ' | sed "s/\[\|\]\|%//g")
+
+if [[ $1 == "add" ]]; then
+    lev=$(($lev+5))
+elif [[ $1 == "min" ]]; then
+    lev=$(($lev-5))
+elif [[ $1 == "set" ]]; then
+    lev=$2
+fi
+
+amixer set $sound_card $lev% >/dev/null
+
+statusbar.sh once

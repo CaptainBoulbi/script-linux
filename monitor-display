@@ -1,0 +1,31 @@
+#!/bin/bash
+
+mode=$(echo -e "same\ndifferent" | dmenu -p "monitors layout:")
+monitors=$(xrandr --listmonitors | sort -r | cut -d' ' -f6)
+
+main=$(echo $monitors | tr ' ' '\n' | dmenu -p "which monitor is main:")
+monitors=$(echo $monitors | sed "s/$main//")
+
+if [[ $mode == "same" ]]; then
+    for m in $monitors; do
+        xrandr --output $m --auto --same-as $main --mode 1920x1080
+    done
+elif [[ $mode == "different" ]]; then
+    for m in $monitors; do
+        direction=$(echo -e "left\nright\nabove\nbelow\nsame" | dmenu -p "monitor '$m' direction from '$main'")
+
+        case $direction in
+            "left" | "right")
+                direction="--$direction-of"
+                ;;
+            "above" | "below")
+                direction="--$direction"
+                ;;
+            "same")
+                direction="--$direction-as"
+                ;;
+        esac
+
+        xrandr --output $main --primary --mode 1920x1080 --output $m --mode 1920x1080 $direction $main
+    done
+fi
