@@ -138,7 +138,7 @@ alias mantra="v $DEV_OPT_PATH/notes/mantra"
 alias qr-network="nmcli device wifi show-password"
 
 # alias avec parametre
-emoji(){ grep -i $1 ~/documents/emoji; }
+emoji(){ grep -i $1 $OPT_PATH/emoji; }
 dev(){ [ -z $1 ] && cd $DEV_PATH/ || cd $DEV_PATH/*$1* ;}
 cours(){ [ -z $1 ] && cd ~/cours/ || cd ~/cours/*$1* ;}
 lsd(){ ls -d $1*/;}
