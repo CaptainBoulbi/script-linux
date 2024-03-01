@@ -5,7 +5,7 @@
 setxkbmap -layout fr &
 
 # wallpaper
-feh --bg-scale ~/Downloads/wallpaper.jpg &
+feh --bg-scale ~/opt/img/wallpaper.jpg &
 
 # status bar
 ~/dev/script/statusbar.sh &

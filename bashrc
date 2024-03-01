@@ -36,7 +36,11 @@ export PATH="$SCRIPT_PATH/:$PATH"
 export PATH="$SCRIPT_PATH.download/:$PATH"
 export PATH="$DEV_OPT_PATH/built/:$PATH"
 export PATH="/usr/sbin:$PATH"
+
 export EDITOR="nvim"
+export TERM="st"
+
+export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 
 export SOUND_CARD=$(amixer scontrols | head -n 1 | cut -d "'" -f2)
 
@@ -124,7 +128,6 @@ alias clean="alias clr=\"clear\" && clear"
 alias oracle="cd ~/downloads/sqldeveloper/ && ./sqldeveloper.sh"
 alias elephant="pqiv --fullscreen -ti ~/pictures/dall-e"
 alias l="if [ \$(pwd) == \"\$DEV_PATH\" ]; then lsprj; else ls $*; fi"
-alias muz="mpv $OPT_PATH/music &"
 alias krunker="~/downloads/setup.AppImage"
 alias :wq="echo don\'t worry, it\'s saved"
 alias coredir="echo /var/lib/apport/coredump"
@@ -140,6 +143,7 @@ alias qr-network="nmcli device wifi show-password"
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
 dev(){ [ -z $1 ] && cd $DEV_PATH/ || cd $DEV_PATH/*$1* ;}
+opt(){ [ -z $1 ] && cd $OPT_PATH/ || cd $OPT_PATH/*$1* ;}
 cours(){ [ -z $1 ] && cd ~/cours/ || cd ~/cours/*$1* ;}
 lsd(){ ls -d $1*/;}
 lsf(){ ls -p $1 | grep -v /$;}
