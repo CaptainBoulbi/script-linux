@@ -2,7 +2,7 @@
 # facilite l'utilisation et la création des cheat sheet + listage et lien
 # pour aide cs -h
 
-cs_folder=/home/cptbb/dev/opt/cheat-sheet
+cs_folder=$DEV_OPT_PATH/cheat-sheet
 
 case $1 in
 	"-l") ls $cs_folder

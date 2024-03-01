@@ -58,7 +58,7 @@ source $SCRIPT_PATH/completion
 # fi
 
 # alias
-alias cls="clear && pfetch && git-graph"
+alias cls="clear && neofetch"
 #alias clr="clear"
 alias clr="clm"
 alias clm="clear && mcphrase"
@@ -124,7 +124,7 @@ alias clean="alias clr=\"clear\" && clear"
 alias oracle="cd ~/downloads/sqldeveloper/ && ./sqldeveloper.sh"
 alias elephant="pqiv --fullscreen -ti ~/pictures/dall-e"
 alias l="if [ \$(pwd) == \"\$DEV_PATH\" ]; then lsprj; else ls $*; fi"
-alias muz="mpv ~/music &"
+alias muz="mpv $OPT_PATH/music &"
 alias krunker="~/downloads/setup.AppImage"
 alias :wq="echo don\'t worry, it\'s saved"
 alias coredir="echo /var/lib/apport/coredump"
@@ -160,6 +160,4 @@ cmkdir(){ mkdir $1 && cd $1; }
 clo(){ clr && lole $1; }
 alias sgit="for i in \$(lgit); do echo -e \"\n\$i\" && cd \$i && git status && back; done"
 
-# at start
-# clear
-# mcphrase
+#newgrp docker
