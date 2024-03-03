@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -xe
+
+path=$OPT_PATH/img/screenshot/
+file=screenshot$(date "+%F_%T")
+
+ffmpeg -f x11grab -framerate 1 -video_size 1920x1080 -i :0.0 -vframes 1 $path$file.png
+
+newfile=$(echo $file | dmenu -p "rename $file :")
+
+mv $path$file.png $path$newfile.png

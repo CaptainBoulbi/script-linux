@@ -33,9 +33,11 @@ export DEV_OPT_PATH="$OPT_PATH/dev"
 export SCRIPT_PATH="$DEV_PATH/script"
 
 export PATH="$SCRIPT_PATH/:$PATH"
-export PATH="$SCRIPT_PATH.download/:$PATH"
+export PATH="$DEV_OPT_PATH/script.download/:$PATH"
 export PATH="$DEV_OPT_PATH/built/:$PATH"
+export PATH="$DEV_OPT_PATH/bin/:$PATH"
 export PATH="/usr/sbin:$PATH"
+export PATH="/opt/dmenu_path:$PATH"
 
 export EDITOR="nvim"
 export TERM="st"
@@ -68,7 +70,7 @@ alias clr="clm"
 alias clm="clear && mcphrase"
 alias cll="clear && ls"
 alias rm="trash"
-alias shut="figlet 'finito' && sleep 0.5; shutdown 0"
+#alias shut="figlet 'finito' && sleep 0.5; shutdown 0"
 alias v="nvim"
 alias g="git"
 alias hm="gnome-terminal --full-screen -- bash -c \"exec bash; cd $DEV_PATH && cls\" && exit"
@@ -144,6 +146,7 @@ alias qr-network="nmcli device wifi show-password"
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
 dev(){ [ -z $1 ] && cd $DEV_PATH/ || cd $DEV_PATH/*$1* ;}
 opt(){ [ -z $1 ] && cd $OPT_PATH/ || cd $OPT_PATH/*$1* ;}
+work(){ [ -z $1 ] && cd ~/work/ || cd ~/work/*$1* ;}
 cours(){ [ -z $1 ] && cd ~/cours/ || cd ~/cours/*$1* ;}
 lsd(){ ls -d $1*/;}
 lsf(){ ls -p $1 | grep -v /$;}

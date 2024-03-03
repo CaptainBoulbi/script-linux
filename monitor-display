@@ -1,7 +1,8 @@
 #!/bin/bash
 
 mode=$(echo -e "same\ndifferent" | dmenu -p "monitors layout:")
-monitors=$(xrandr --listmonitors | sort -r | cut -d' ' -f6)
+#monitors=$(xrandr --listmonitors | sort -r | cut -d' ' -f6)
+monitors=$(xrandr -q | grep "^[^ ]" | cut -d' ' -f1 | grep -v Screen)
 
 main=$(echo $monitors | tr ' ' '\n' | dmenu -p "which monitor is main:")
 monitors=$(echo $monitors | sed "s/$main//")
@@ -12,7 +13,7 @@ if [[ $mode == "same" ]]; then
     done
 elif [[ $mode == "different" ]]; then
     for m in $monitors; do
-        direction=$(echo -e "left\nright\nabove\nbelow\nsame" | dmenu -p "monitor '$m' direction from '$main'")
+        direction=$(echo -e "left\nright\nabove\nbelow\nsame\nnone" | dmenu -p "monitor '$m' direction from '$main'")
 
         case $direction in
             "left" | "right")
@@ -23,6 +24,9 @@ elif [[ $mode == "different" ]]; then
                 ;;
             "same")
                 direction="--$direction-as"
+                ;;
+            "none")
+                continue
                 ;;
         esac
 
