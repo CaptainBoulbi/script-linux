@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+    st screenrecorder hamood 2>/dev/null
+    exit $?
+fi
+
+path=$OPT_PATH/img/screenshot/
+file=screenrecord$(date "+%F_%T")
+sound_card=$(cat $XDG_CONFIG_HOME/sound_card)
+
+# video
+#ffmpeg -f x11grab -framerate 60 -video_size 1920x1080 -i :0.0 $path$file.mp4
+
+# audio
+#ffmpeg -f alsa -i default $path$file.mp4
+
+# video + audio
+# NOTE: ne marche pas
+# TODO: compiler ffmpeg code source
+ffmpeg -f x11grab -framerate 60 -video_size 1920x1080 -i :0.0 -f alsa -i default $path$file.mp4
+
+newfile=$(echo $file | dmenu -p "rename $file :")
+
+mv $path$file.mp4 $path$newfile.mp4

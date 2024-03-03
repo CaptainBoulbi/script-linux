@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -xe
-
 path=$OPT_PATH/img/screenshot/
 file=screenshot$(date "+%F_%T")
 
