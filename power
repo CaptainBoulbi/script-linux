@@ -1,6 +1,6 @@
 #!/bin/bash
 
-act=$(echo -e "reboot\nshutdown\nlock" | dmenu -p "action:")
+act=$(echo -e "shutdown\nreboot\nlock" | dmenu -p "action:")
 
 case $act in
     "shutdown")

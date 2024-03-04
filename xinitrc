@@ -5,7 +5,7 @@
 setxkbmap -layout fr &
 
 # set screen lock
-lstime=60
+lstime=900
 xset -dpms
 xset dpms $lstime $lstime $lstime
 xss-lock slock &
