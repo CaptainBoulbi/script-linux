@@ -139,8 +139,9 @@ alias kys="shut"
 alias lastcd="back && pwd && back"
 alias sae="cd /opt/lampp/htdocs/SAE_Reseaux"
 alias unity="/home/cptbb/Unity-2023.2.8f1/Editor/Unity"
-alias mantra="v $DEV_OPT_PATH/notes/mantra"
 alias qr-network="nmcli device wifi show-password"
+alias cal="ccal -e --noc"
+alias calendar="calcurse"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
