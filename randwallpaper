@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source /etc/profile
+export DISPLAY=:0
+
 wallpath=$OPT_PATH/img/wallpaper
 img=$(ls $wallpath | shuf -n 1)
 
