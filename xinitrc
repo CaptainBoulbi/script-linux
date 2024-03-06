@@ -11,7 +11,7 @@ xset dpms $lstime $lstime $lstime
 xss-lock slock &
 
 # wallpaper
-feh --bg-scale ~/opt/img/wallpaper.jpg &
+feh --bg-scale ~/opt/img/wallpaper.curr &
 
 # status bar
 ~/dev/script/statusbar.sh &
