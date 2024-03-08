@@ -142,6 +142,7 @@ alias unity="/home/cptbb/Unity-2023.2.8f1/Editor/Unity"
 alias qr-network="nmcli device wifi show-password"
 alias cal="ccal -e --noc"
 alias calendar="calcurse"
+alias dicker="docker"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
