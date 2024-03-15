@@ -1,0 +1,3 @@
+#!/bin/bash
+
+man $(man -k . | cut -d' ' -f1-2 | dmenu | sed "s/(\|)//g" | tr ' ' '\n' | tac | tr '\n' ' ')
