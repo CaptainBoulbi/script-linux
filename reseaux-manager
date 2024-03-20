@@ -3,7 +3,7 @@
 to_ssid=$(nmcli device wifi list | awk '{print $2}' | sed -e "/--/d" | sed "/BSSID/d" | dmenu -l 10)
 #to_ssid=$(cat ~/wifi | awk '{print $2}' | sed -e "/--/d" | sed "/BSSID/d" | dmenu -i -l 10)
 
-need_pass=$(echo -e "YES\nNO" | dmenu -i -p "need password?")
+need_pass=$(echo -e "NO\nYES" | dmenu -i -p "need password?")
 
 if [[ $need_pass == "NO" ]]; then
     nmcli device wifi connect $to_ssid
