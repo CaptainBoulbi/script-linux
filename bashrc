@@ -37,6 +37,7 @@ export PATH="$DEV_OPT_PATH/script.download/:$PATH"
 export PATH="$DEV_OPT_PATH/built/:$PATH"
 export PATH="$DEV_OPT_PATH/bin/:$PATH"
 export PATH="$OPT_PATH/bin/:$PATH"
+export PATH="$OPT_PATH/built/:$PATH"
 export PATH="/usr/sbin:$PATH"
 export PATH="/opt/dmenu_path:$PATH"
 
