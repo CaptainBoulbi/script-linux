@@ -2,8 +2,8 @@
 
 if [[ $1 == "stop" ]]; then
 	sudo /opt/lampp/lampp stop
-	sudo systemctl start apache2
+	sudo systemctl start lighttpd
 else
-	sudo systemctl stop apache2
+	sudo systemctl stop lighttpd
 	sudo /opt/lampp/lampp start
 fi
