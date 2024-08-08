@@ -172,6 +172,8 @@ fgit(){ find | grep \\.git$ | sed s/\\.git//g; }
 lgit(){ fgit | fgit | grep --color=never ^\\./[^/]*/$ ; }
 cmkdir(){ mkdir $1 && cd $1; }
 clo(){ clr && lole $1; }
+archive(){ if [[ $1 == "" ]]; then echo "usage: archive ./project"; else tar zcvf $DEV_OPT_PATH/archive/$(echo $1 | sed "s/\/$//g").tgz $1 && rm $DEV_PATH/$1; fi; }
+unarchive(){ cd $DEV_PATH && tar -xvf "$DEV_OPT_PATH/archive/$(ls $DEV_OPT_PATH/archive/ | sed "s/\.tgz$//g" | dmenu).tgz"; }
 alias sgit="for i in \$(lgit); do echo -e \"\n\$i\" && cd \$i && git status && back; done"
 
 #newgrp docker
