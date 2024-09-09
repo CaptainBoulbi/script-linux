@@ -20,7 +20,7 @@ case $1 in
 		git plog
 		exit;;
 	"-ps") cd $cs_folder
-		git push bbsrv
+		git push
 		exit;;
 	"-h") echo "cs -h : affiche aide commande"
 		echo "cs <cheat-sheet> : ouvre le cheat-sheet ou le crée s'il n'exite pas"
