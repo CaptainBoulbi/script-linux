@@ -1,0 +1,26 @@
+#!/bin/bash
+
+pat="/home/$USER/opt/journal"
+ane=$(date +%Y)
+auj=$(date +%d-%b | tr '[:upper:]' '[:lower:]')
+
+if [[ $2 != "" ]]; then
+    nvim $pat/$2/$1
+    exit
+fi;
+
+if [[ $1 == "save" ]]; then
+    cd $pat
+    git add .
+    git commit -am "$auj"
+    git push
+    exit
+fi;
+
+if [[ $1 != "" ]]; then
+    nvim $pat/$ane/$1
+    exit
+fi;
+
+mkdir -p $pat/$ane
+nvim $pat/$ane/$auj

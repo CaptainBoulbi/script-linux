@@ -150,6 +150,7 @@ alias shrek="firefox https://www.youtube.com/watch?v=_S7WEVLbQ-Y"
 alias ssh-save='eval $(ssh-agent) && ssh-add'
 alias raylib="cd /usr/local/include && v raylib.h"
 alias d="dev"
+alias packtoday="grep ' install ' /var/log/dpkg.log"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
