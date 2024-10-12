@@ -151,6 +151,7 @@ alias ssh-save='eval $(ssh-agent) && ssh-add'
 alias raylib="cd /usr/local/include && v raylib.h"
 alias d="dev"
 alias packtoday="grep ' install ' /var/log/dpkg.log"
+alias amongus="p3 -c 'print(chr(sum(range(ord(min(str(not())))))))' | lolcat"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
