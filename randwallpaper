@@ -3,7 +3,8 @@
 source /etc/profile
 export DISPLAY=:0
 
-wallpath=$OPT_PATH/img/wallpaper
+#wallpath=$OPT_PATH/img/wallpaper
+wallpath=$OPT_PATH/img/meme/penger/wallpaper
 img=$(ls $wallpath | shuf -n 1)
 
 cp $wallpath/$img $OPT_PATH/img/wallpaper.curr

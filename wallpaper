@@ -1,6 +1,7 @@
 #!/bin/bash
 
-wallpath=$OPT_PATH/img/wallpaper
+#wallpath=$OPT_PATH/img/wallpaper
+wallpath=$OPT_PATH/img/meme/penger/wallpaper
 img=$(ls $wallpath | dmenu -l 10 -p "wallpaper:")
 
 cp $wallpath/$img $OPT_PATH/img/wallpaper.curr
