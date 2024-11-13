@@ -151,6 +151,7 @@ alias raylib="cd /usr/local/include && v raylib.h"
 alias d="dev"
 alias packtoday="grep ' install ' /var/log/dpkg.log"
 alias amongus="p3 -c 'print(chr(sum(range(ord(min(str(not())))))))' | lolcat"
+alias neofetch="neofetch --source $OPT_PATH/img/meme/penger/penger.txt"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
