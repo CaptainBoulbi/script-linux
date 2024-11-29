@@ -149,7 +149,7 @@ alias shrek="firefox https://www.youtube.com/watch?v=_S7WEVLbQ-Y"
 alias ssh-save='eval $(ssh-agent) && ssh-add'
 alias raylib="cd /usr/local/include && v raylib.h"
 alias d="dev"
-alias packtoday="grep ' install ' /var/log/dpkg.log"
+alias packtoday="grep ' install ' /var/log/dpkg.log | grep $(date +%Y-%m-%d) | cut -d' ' -f4"
 alias amongus="p3 -c 'print(chr(sum(range(ord(min(str(not())))))))' | lolcat"
 alias neofetch="neofetch --source $OPT_PATH/img/meme/penger/penger.txt"
 
