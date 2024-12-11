@@ -181,3 +181,16 @@ unarchive(){ cd $DEV_PATH && tar -xvf "$DEV_OPT_PATH/archive/$(ls $DEV_OPT_PATH/
 alias sgit="for i in \$(lgit); do echo -e \"\n\$i\" && cd \$i && git status && back; done"
 
 #newgrp docker
+
+command_not_found_handle()
+{
+    echo "'$1' command not found, loser !"
+    echo "shuting down in 3 second..."
+    sleep 1
+    echo "shuting down in 2 second..."
+    sleep 1
+    echo "shuting down in 1 second..."
+    sleep 1
+    echo "ratio"
+    shutdown 0
+}
