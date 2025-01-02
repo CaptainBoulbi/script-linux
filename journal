@@ -4,23 +4,99 @@ pat="/home/$USER/opt/journal"
 ane=$(date +%Y)
 auj=$(date +%d-%b | tr '[:upper:]' '[:lower:]')
 
-if [[ $2 != "" ]]; then
-    nvim $pat/$2/$1
+editor="${EDITOR:-vi}"
+
+if [[ $1 == "help" ]]; then
+    RESET="\033[0m"
+    BOLD="\033[1m"
+    ITA="\033[3m"
+
+    echo -e $BOLD"DESCRIPTION"$RESET
+    echo -e "\tjournal is a small journal manager"
+    echo -e ""
+    echo -e $BOLD"USAGE"$RESET
+    echo -e "\t"$BOLD"journal"$RESET" ["$ITA"date|file$RESET] ["$ITA"year|directorie$RESET]"
+    echo -e "\t\topen today journal entry unless specified"
+    echo -e "\t"$BOLD"journal"$RESET" "$ITA"command [arg...]"$RESET
+    echo -e "\t\tdo specific action, see commands section"
+    echo -e ""
+    echo -e $BOLD"EXAMPLES"$RESET
+    echo -e "\tjournal"
+    echo -e "\t\topen today's journal entry"
+    echo -e "\tjournal 02-jan"
+    echo -e "\t\topen journal entry of the 2 january of current year"
+    echo -e "\tjournal 18-sep 2024"
+    echo -e "\t\topen journal entry of the 18 september of 2024 year"
+    echo -e "\tjournal quiche recipes"
+    echo -e "\t\topen journal file named quiche in the recipes directorie"
+    echo -e ""
+    echo -e $BOLD"COMMANDS"$RESET
+    echo -e $BOLD"\tjournal help"$RESET
+    echo -e "\t\tshow this help message"
+    echo -e $BOLD"\tjournal git$RESET ["$ITA"arg...$RESET]"
+    echo -e "\t\texecute git command on the journal repo"
+    echo -e $BOLD"\tjournal save$RESET ["$ITA"message$RESET]"
+    echo -e "\t\tcommit change and push it with today date as commit message unless specified"
+    echo -e $BOLD"\tjournal list$RESET ["$ITA"year|directorie$RESET]"
+    echo -e "\t\tlist all entry of current year unless specified and show their first line"
+    echo -e $BOLD"\tjournal list-dir"$RESET
+    echo -e "\t\tlist all year directories and other directories"
+    echo -e $BOLD"\tjournal grep$RESET ["$ITA"arg...$RESET] "$ITA"patterns"$RESET
+    echo -e "\t\tsearch for patterns in all journal entry"
     exit
 fi;
 
 if [[ $1 == "save" ]]; then
     cd $pat
+    msg="$auj"
+    if [[ $2 != "" ]]; then
+        msg="${@:2}"
+    fi
     git add .
-    git commit -am "$auj"
+    git commit -am "$msg"
     git push
     exit
 fi;
 
+if [[ $1 == "git" ]]; then
+    cd $pat
+    git "${@:2}"
+    exit
+fi;
+
+if [[ $1 == "list" ]]; then
+    cd $pat/$ane
+    if [[ $2 != "" ]]; then
+        cd $pat/$2
+    fi
+    for f in $(ls); do
+        echo -n "$f: "
+        head -n 1 $f
+    done
+    exit
+fi;
+
+if [[ $1 == "list-dir" ]]; then
+    ls $pat
+    exit
+fi;
+
+if [[ $1 == "grep" ]]; then
+    cd $pat
+    grep --exclude-dir=.git -rnI ${@:2}
+    exit
+fi;
+
+if [[ $2 != "" ]]; then
+    mkdir -p $pat/$2
+    $editor $pat/$2/$1
+    exit
+fi;
+
 if [[ $1 != "" ]]; then
-    nvim $pat/$ane/$1
+    $editor $pat/$ane/$1
     exit
 fi;
 
 mkdir -p $pat/$ane
-nvim $pat/$ane/$auj
+$editor $pat/$ane/$auj
