@@ -153,6 +153,7 @@ alias packtoday="grep ' install ' /var/log/dpkg.log | grep $(date +%Y-%m-%d) | c
 alias amongus="p3 -c 'print(chr(sum(range(ord(min(str(not())))))))' | lolcat"
 alias neofetch="neofetch --source $OPT_PATH/img/meme/penger/penger.txt"
 alias j="journal"
+alias mokdir="mkdir"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
