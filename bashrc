@@ -154,6 +154,7 @@ alias amongus="p3 -c 'print(chr(sum(range(ord(min(str(not())))))))' | lolcat"
 alias neofetch="neofetch --source $OPT_PATH/img/meme/penger/penger.txt"
 alias j="journal"
 alias mokdir="mkdir"
+alias tt="tt -showwpm -words french_1k -t 30 -csv"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
