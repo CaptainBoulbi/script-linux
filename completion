@@ -24,6 +24,7 @@ complete -F cmpt_newp newp
 
 source $DEV_OPT_PATH/script.download/git-completion.bash 
 __git_complete g git
+source <(git lfs completion bash)
 
 cmpt_cs(){
 	for opt in `ls $DEV_OPT_PATH/cheat-sheet`; do
