@@ -1,0 +1,15 @@
+#!/bin/bash
+
+me=$(whoami)
+host=$(hostname)
+path=$([[ $PWD == /home/$USER* ]] && echo "~${PWD##/home/$USER}" || echo $PWD)
+branch=$(git branch --show-current 2>/dev/null)
+
+echo -ne "\033[31m⚒\033[0m "
+echo -ne "\033[1;32m$me@$host\033[0m"
+echo -ne ":"
+echo -ne "\033[1;34m$path\033[0m"
+if [ ! -z $branch ]; then
+    echo -ne " \033[1;3;5;33m($branch)\033[0m"
+fi
+echo -ne "$ "
