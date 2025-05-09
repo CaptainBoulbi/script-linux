@@ -159,6 +159,7 @@ alias tt="tt -showwpm -words french_1k -t 30 -csv"
 alias one-letter-command='sed -n "s/^alias *\(.\)=.*$/\1/p" '$SCRIPT_PATH'/bashrc | tr "\n" " " | lolcat && echo'
 alias loser="echo il n\'y a pas de loser ici, que des winner \(des gens qui utilise linux\)"
 alias monip="dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g'"
+alias pvpn="export $(dbus-launch) && gnome-keyring-daemon -r -d && protonvpn-app"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
