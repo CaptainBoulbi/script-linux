@@ -2,7 +2,7 @@
 
 status_bar(){
     wifi=$(/usr/sbin/iwgetid -r)
-    date=$(date +"%a %d %b. %Y")
+    date=$(LC_ALL=fr_FR.utf8 date +"%a %d %b. %Y")
     hour=$(date +"%H:%M")
     battery=$(upower -i $(upower -e | grep BAT) | grep percentage | sed "s/ //g" | cut -d ":" -f2)
     battery_state=$(upower -i $(upower -e | grep BAT) | grep state | sed "s/ //g" | cut -d':' -f2)
