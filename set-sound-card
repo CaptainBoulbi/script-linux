@@ -1,5 +1,13 @@
 #!/bin/bash
 
-echo $(amixer scontrols | cut -d "'" -f2 | dmenu -l 10) > $XDG_CONFIG_HOME/sound_card
+source /home/cptbb/dev/script/bashrc
+
+if [[ $1 == "next" ]]; then
+    echo $(amixer scontrols | cut -d "'" -f2 | grep -A1 $(cat $XDG_CONFIG_HOME/sound_card) | tail -n1) > $XDG_CONFIG_HOME/sound_card
+elif [[ $1 == "prev" ]]; then
+    echo $(amixer scontrols | cut -d "'" -f2 | grep -B1 $(cat $XDG_CONFIG_HOME/sound_card) | head -n1) > $XDG_CONFIG_HOME/sound_card
+else
+    echo $(amixer scontrols | cut -d "'" -f2 | dmenu -l 10) > $XDG_CONFIG_HOME/sound_card
+fi
 
 statusbar.sh once
