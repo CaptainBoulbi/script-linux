@@ -39,6 +39,8 @@ if [[ $1 == "help" ]]; then
     echo -e "\t\tcommit change and push it with today date as commit message unless specified"
     echo -e $BOLD"\tjournal list$RESET ["$ITA"year|directorie$RESET]"
     echo -e "\t\tlist all entry of current year unless specified and show their first line"
+    echo -e $BOLD"\tjournal list-all"$RESET
+    echo -e "\t\tlist all entry of all year directories and other directories"
     echo -e $BOLD"\tjournal list-dir"$RESET
     echo -e "\t\tlist all year directories and other directories"
     echo -e $BOLD"\tjournal grep$RESET ["$ITA"arg...$RESET] "$ITA"patterns"$RESET
@@ -73,6 +75,12 @@ if [[ $1 == "list" ]]; then
         echo -n "$f: "
         head -n 1 $f
     done
+    exit
+fi;
+
+if [[ $1 == "list-all" ]]; then
+    cd $pat
+    ls *
     exit
 fi;
 

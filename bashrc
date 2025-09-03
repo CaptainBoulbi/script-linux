@@ -160,6 +160,7 @@ alias one-letter-command='sed -n "s/^alias *\(.\)=.*$/\1/p" '$SCRIPT_PATH'/bashr
 alias loser="echo il n\'y a pas de loser ici, que des winner \(des gens qui utilise linux\)"
 alias monip="dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g'"
 alias pvpn="export $(dbus-launch) && gnome-keyring-daemon -r -d && protonvpn-app"
+alias fix-minecraft-file-limit="echo 256 | sudo tee /proc/sys/fs/inotify/max_user_instances"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
