@@ -164,10 +164,11 @@ alias fix-minecraft-file-limit="echo 256 | sudo tee /proc/sys/fs/inotify/max_use
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }
-dev(){ [ -z $1 ] && cd $DEV_PATH/ || cd $DEV_PATH/*$1* ;}
-opt(){ [ -z $1 ] && cd $OPT_PATH/ || cd $OPT_PATH/*$1* ;}
-work(){ [ -z $1 ] && cd ~/work/ || cd ~/work/*$1* ;}
-cours(){ [ -z $1 ] && cd ~/cours/ || cd ~/cours/*$1* ;}
+# TODO: faire un generateur de ce style de commande (dev: $DEV_PATH, work: ~/work, ...)
+dev(){ [ -z $1 ] && cd $DEV_PATH/ || cd $DEV_PATH/*$1* || ls -d $DEV_PATH/*$1* | awk -v char="$DEV_PATH/" '{gsub(char,""); print}' ;}
+opt(){ [ -z $1 ] && cd $OPT_PATH/ || cd $OPT_PATH/*$1* || ls -d $OPT_PATH/*$1* | awk -v char="$OPT_PATH/" '{gsub(char,""); print}' ;}
+work(){ [ -z $1 ] && cd ~/work/ || cd ~/work/*$1* || ls -d ~/work/*$1* | awk -v char="$HOME/work/" '{gsub(char,""); print}' ;}
+cours(){ [ -z $1 ] && cd ~/cours/ || cd ~/cours/*$1* || ls -d ~/cours/*$1* | awk -v char="$HOME/cours/" '{gsub(char,""); print}' ;}
 lsd(){ ls -d $1*/;}
 lsf(){ ls -p $1 | grep -v /$;}
 ls..(){ ls $1..;}
