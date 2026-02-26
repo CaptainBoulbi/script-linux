@@ -16,5 +16,8 @@ feh --bg-scale ~/opt/img/wallpaper.curr &
 # status bar
 ~/dev/script/statusbar.sh &
 
+# dunst (notification)
+/usr/bin/dunst &
+
 # dwm
 exec /usr/local/bin/dwm
