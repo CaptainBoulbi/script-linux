@@ -1,12 +1,20 @@
 #!/bin/bash
 
-session=$(tmux ls | cut -f1 -d':' | dmenu -p "tmux sessions :")
-if [ -z $session ]; then
+existing_session=$(tmux ls | cut -f1 -d':')
+selected_session=$(echo $existing_session | tr ' ' '\n' | dmenu -p "tmux sessions :")
+
+if [ -z "$selected_session" ]; then
     exit
 fi
 
+tmux_action="attach -t $selected_session"
+if [ -z "$(echo $existing_session | grep $selected_session)" ]; then
+    tmux_action="new-session -s $selected_session bash"
+fi
+
+
 if [ "$TERM" = "linux" ]; then
-    xfce4-terminal -e "tmux attach -t $session"
+    xfce4-terminal -e "tmux $tmux_action"
 else
-    tmux attach -t $session
+    tmux $tmux_action
 fi
