@@ -12,9 +12,8 @@ if [ -z "$(echo $existing_session | grep $selected_session)" ]; then
     tmux_action="new-session -s $selected_session bash"
 fi
 
-
 if [ "$TERM" = "linux" ]; then
-    xfce4-terminal -e "tmux $tmux_action"
+    xfce4-terminal --hide-menubar -e "tmux $tmux_action"
 else
     tmux $tmux_action
 fi
