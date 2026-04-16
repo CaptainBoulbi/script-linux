@@ -1,3 +1,12 @@
 #!/bin/bash
 
-tmux attach -t $(tmux ls | cut -f1 -d':' | dmenu -p "tmux sessions :")
+session=$(tmux ls | cut -f1 -d':' | dmenu -p "tmux sessions :")
+if [ -z $session ]; then
+    exit
+fi
+
+if [ "$TERM" = "linux" ]; then
+    xfce4-terminal -e "tmux attach -t $session"
+else
+    tmux attach -t $session
+fi
