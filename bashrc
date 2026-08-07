@@ -41,6 +41,9 @@ export PATH="$OPT_PATH/built/:$PATH"
 export PATH="/usr/sbin:$PATH"
 export PATH="/opt/dmenu_path:$PATH"
 
+export PATH="$PATH:$HOME/flutter/bin:$HOME/dart-sdk/bin"
+export ANDROID_HOME="$HOME/Android/Sdk"
+
 export EDITOR="nvim"
 export TERM="st"
 
@@ -162,6 +165,7 @@ alias monip="dig +short txt ch whoami.cloudflare @1.0.0.1 | sed 's/\"//g'"
 alias pvpn="export $(dbus-launch) && gnome-keyring-daemon -r -d && protonvpn-app"
 alias fix-minecraft-file-limit="echo 256 | sudo tee /proc/sys/fs/inotify/max_user_instances"
 alias pu="date +%j"
+alias nginx-proxy="firefox http://localhost:8181 && ssh -L 8181:localhost:81 vps-ovh"
 
 # alias avec parametre
 emoji(){ grep -i $1 $OPT_PATH/emoji; }

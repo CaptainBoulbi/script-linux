@@ -4,4 +4,4 @@ muz_path=$OPT_PATH/music
 muz=$(echo -e ".\n$(ls $muz_path)" | dmenu)
 echo "$muz"
 
-mpv --player-operation-mode=pseudo-gui --shuffle $muz_path/$muz 2>/dev/null &
+mpv --player-operation-mode=pseudo-gui --loop-playlist --shuffle $muz_path/$muz 2>/dev/null &
